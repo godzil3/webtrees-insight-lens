@@ -1,0 +1,98 @@
+<?php
+
+declare(strict_types=1);
+
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Tree;
+
+/**
+ * Tab 3: Custom Heatmap
+ *
+ * @var Tree $tree
+ * @var string $module
+ * @var array<int,string> $allUsers
+ */
+
+?>
+<div class="card mb-4">
+    <div class="card-header">
+        <h3 class="card-title"><?= I18N::translate('Custom Heatmap Configuration') ?></h3>
+        <span class="wt-icon-help" title="<?= I18N::translate('Create custom visualizations by selecting dimensions for X and Y axes and a measure to display') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+    </div>
+    <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <label for="heatmapX" class="form-label"><?= I18N::translate('X Axis (columns)') ?></label>
+                <select class="form-select" id="heatmapX">
+                    <option value="hour"><?= I18N::translate('Hour') ?></option>
+                    <option value="dayOfWeek" selected><?= I18N::translate('Day of week') ?></option>
+                    <option value="dayOfMonth"><?= I18N::translate('Day of month') ?></option>
+                    <option value="month"><?= I18N::translate('Month') ?></option>
+                    <option value="year"><?= I18N::translate('Year') ?></option>
+                    <option value="user"><?= I18N::translate('User') ?></option>
+                    <option value="recordType"><?= I18N::translate('Record type') ?></option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="heatmapY" class="form-label"><?= I18N::translate('Y Axis (rows)') ?></label>
+                <select class="form-select" id="heatmapY">
+                    <option value="hour" selected><?= I18N::translate('Hour') ?></option>
+                    <option value="dayOfWeek"><?= I18N::translate('Day of week') ?></option>
+                    <option value="dayOfMonth"><?= I18N::translate('Day of month') ?></option>
+                    <option value="month"><?= I18N::translate('Month') ?></option>
+                    <option value="year"><?= I18N::translate('Year') ?></option>
+                    <option value="user"><?= I18N::translate('User') ?></option>
+                    <option value="recordType"><?= I18N::translate('Record type') ?></option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="heatmapMeasure" class="form-label"><?= I18N::translate('Value (measure)') ?></label>
+                <select class="form-select" id="heatmapMeasure">
+                    <option value="changes" selected><?= I18N::translate('Number of changes') ?></option>
+                    <option value="uniqueRecords"><?= I18N::translate('Unique records') ?></option>
+                    <option value="uniqueUsers"><?= I18N::translate('Unique users') ?></option>
+                    <option value="uniqueDays"><?= I18N::translate('Unique days') ?></option>
+                </select>
+            </div>
+            <div class="col-md-3 d-flex align-items-end">
+                <button type="button" class="btn btn-primary w-100" id="generateHeatmap">
+                    <?= I18N::translate('Generate') ?>
+                </button>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="row mb-3">
+            <div class="col-md-8">
+                <label for="heatmapRecords" class="form-label">
+                    <?= I18N::translate('Filter by record (optional)') ?>
+                </label>
+                <select id="heatmapRecords"
+                        name="heatmapRecords[]"
+                        class="form-select"
+                        multiple
+                        data-search-url="<?= e(route('module', ['module' => $module, 'action' => 'SearchAllRecords', 'tree' => $tree->name()])) ?>"
+                        placeholder="<?= I18N::translate('Search individuals, families, sources...') ?>">
+                </select>
+                <small class="form-text text-muted">
+                    <?= I18N::translate('Search and select multiple records of any type') ?>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Heatmap Chart -->
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title" id="heatmapTitle"><?= I18N::translate('Heatmap') ?></h3>
+    </div>
+    <div class="card-body" style="position: relative;">
+        <div id="heatmapContainer" style="min-height: 400px;">
+            <canvas id="heatmapChart"></canvas>
+        </div>
+        <div id="heatmapChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+            <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= I18N::translate('Configure the axes and click Generate to create the heatmap') ?></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,262 @@
+<?php
+
+declare(strict_types=1);
+
+use Fisharebest\Webtrees\I18N;
+
+/**
+ * Tab 2: Editor Work Patterns
+ * Data loaded via AJAX - overlays show "no data" initially, JS updates them.
+ *
+ * @var string $noDataMessage
+ */
+
+?>
+<!-- Aggregation Control Panel -->
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="row w-100 align-items-center">
+            <div class="col-auto">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="aggregateDataCheckbox">
+                    <label class="form-check-label" for="aggregateDataCheckbox">
+                        <strong><?= I18N::translate('Aggregate data across years') ?></strong>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Absolute/Relative Toggle - shown when aggregation is ON -->
+            <div class="col-auto" id="aggregationTypeContainer" style="display: block;">
+                <div class="btn-group btn-group-sm" role="group">
+                    <button type="button" class="btn btn-primary" id="aggregationAbsolute" data-value="absolute">
+                        <?= I18N::translate('Absolute') ?>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary" id="aggregationRelative" data-value="relative">
+                        <?= I18N::translate('Relative (%%)') ?>
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-auto">
+                <small class="text-muted">
+                    <span id="aggregateHelperText">
+                        <?= I18N::translate('Shows combined data with range shading') ?>
+                    </span>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Editor Work Patterns Section -->
+
+<div class="row">
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Changes by User') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Number of changes made by each user') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="userChart" style="max-height: 300px; width: 100%;"></canvas>
+                <div id="userChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Biggest Work Sessions') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Days with the highest number of changes - intensive editing sessions') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="biggestWorkSessionsChart" style="max-height: 300px; width: 100%;"></canvas>
+                <div id="biggestWorkSessionsChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Commit Size Distribution & Change Status -->
+<div class="row">
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Commit Size Distribution') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Distribution of how many changes are made per commit - shows editing style (single changes vs batches)') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <div class="row mb-3" id="commitSizeStatsRow" style="display: none;">
+                    <div class="col-6 text-center">
+                        <strong><?= I18N::translate('Mean') ?>:</strong> <span id="commitSizeMean">0</span>
+                    </div>
+                    <div class="col-6 text-center">
+                        <strong><?= I18N::translate('Median') ?>:</strong> <span id="commitSizeMedian">0</span>
+                    </div>
+                </div>
+                <canvas id="commitSizeChart" style="max-height: 300px; width: 100%;"></canvas>
+                <div id="commitSizeChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Change Status') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Ratio of accepted, rejected, and pending changes') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="changeStatusChart" style="max-height: 300px; width: 100%;"></canvas>
+                <div id="changeStatusChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Time-based Analysis Charts (Full Width) -->
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Changes by Hour') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Distribution of changes across hours of the day (0-23) - shows when editors are most active') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="hourChart" style="max-height: 300px; width: 100%;"></canvas>
+                <div id="hourChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Changes by Day of Week') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Distribution of changes across days of the week - shows preferred editing days') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="dayChart" style="max-height: 300px; width: 100%;"></canvas>
+                <div id="dayChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Changes by Day of Month') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Distribution of changes across days 1-31 - shows if certain days are more active') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="dayOfMonthChart" style="max-height: 300px; width: 100%;"></canvas>
+                <div id="dayOfMonthChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Changes by Month') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Distribution of changes across months - shows seasonal editing patterns') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="monthChart" style="max-height: 300px; width: 100%;"></canvas>
+                <div id="monthChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Changes by Year') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Number of changes per year - shows long-term editing activity') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="yearChart" style="max-height: 300px; width: 100%;"></canvas>
+                <div id="yearChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Work Intensity & Progress Tracking -->
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Editing Activity Over Time') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Timeline showing editing activity week by week') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="editingActivityOverTimeChart" style="max-height: 300px; width: 100%;"></canvas>
+                <div id="editingActivityOverTimeChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Edit Velocity Trend') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Is editing activity accelerating or declining?') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="editVelocityChart" style="max-height: 300px; width: 100%;"></canvas>
+                <div id="editVelocityChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Session Duration Distribution') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('How long do users work in a single session?') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="sessionDurationChart" style="max-height: 300px; width: 100%;"></canvas>
+                <div id="sessionDurationChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

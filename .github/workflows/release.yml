@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Prepare release folder
+        run: |
+          mkdir -p release/insight-lens
+          # Copy module files (excluding .github, .claude, docs)
+          cp module.php release/insight-lens/
+          cp LensModule.php release/insight-lens/
+          cp autoload.php release/insight-lens/
+          cp latest-version.txt release/insight-lens/
+          cp README.md release/insight-lens/
+          cp LICENSE.md release/insight-lens/
+          cp -r resources release/insight-lens/
+          cp -r Services release/insight-lens/
+
+      - name: Create zip with correct folder structure
+        run: |
+          cd release
+          zip -r ../insight-lens-${{ github.ref_name }}.zip insight-lens
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: insight-lens-${{ github.ref_name }}.zip
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

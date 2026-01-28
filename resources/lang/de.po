@@ -1,0 +1,758 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: webtrees-lens 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-24 12:00+0000\n"
+"PO-Revision-Date: 2025-01-24 12:00+0000\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Insight Lens"
+msgstr "Insight Lens"
+
+msgid "Visualize genealogy change statistics with interactive charts"
+msgstr "Visualisieren Sie Genealogie-Änderungsstatistiken mit interaktiven Diagrammen"
+
+msgid "Change Statistics"
+msgstr "Änderungsstatistiken"
+
+msgid "Changes by Record Type"
+msgstr "Änderungen nach Datensatztyp"
+
+msgid "Changes by User"
+msgstr "Änderungen nach Benutzer"
+
+msgid "Changes by Tree"
+msgstr "Änderungen nach Stammbaum"
+
+msgid "Changes by Hour"
+msgstr "Änderungen nach Stunde"
+
+msgid "Changes by Day of Week"
+msgstr "Änderungen nach Wochentag"
+
+msgid "Changes by Month"
+msgstr "Änderungen nach Monat"
+
+msgid "Most Edited Individuals"
+msgstr "Am häufigsten bearbeitete Personen"
+
+msgid "Most Edited Facts"
+msgstr "Am häufigsten bearbeitete Fakten"
+
+msgid "Most Added Facts"
+msgstr "Am häufigsten hinzugefügte Fakten"
+
+msgid "Most Deleted Facts"
+msgstr "Am häufigsten gelöschte Fakten"
+
+msgid "Most Changed Facts Per Individual"
+msgstr "Am häufigsten geänderte Fakten pro Person"
+
+msgid "Editing Activity Over Time"
+msgstr "Bearbeitungsaktivität im Zeitverlauf"
+
+msgid "Biggest Work Sessions"
+msgstr "Größte Arbeitssitzungen"
+
+msgid "Largest Changes"
+msgstr "Größte Änderungen"
+
+msgid "Weekly editing activity - shows work intensity over time"
+msgstr "Wöchentliche Bearbeitungsaktivität - zeigt Arbeitsintensität im Zeitverlauf"
+
+msgid "Days with most editing activity"
+msgstr "Tage mit der meisten Bearbeitungsaktivität"
+
+msgid "Most comprehensive edits by GEDCOM size"
+msgstr "Umfassendste Bearbeitungen nach GEDCOM-Größe"
+
+msgid "Lines changed"
+msgstr "Geänderte Zeilen"
+
+msgid "Individual"
+msgstr "Person"
+
+msgid "Family"
+msgstr "Familie"
+
+msgid "Source"
+msgstr "Quelle"
+
+msgid "Repository"
+msgstr "Archiv"
+
+msgid "Media"
+msgstr "Medien"
+
+msgid "Note"
+msgstr "Notiz"
+
+msgid "Location"
+msgstr "Ort"
+
+msgid "Submitter"
+msgstr "Einsender"
+
+msgid "Submission"
+msgstr "Einsendung"
+
+msgid "Header"
+msgstr "Kopfzeile"
+
+msgid "Other"
+msgstr "Sonstige"
+
+msgid "Number of changes"
+msgstr "Anzahl der Änderungen"
+
+msgid "Number of additions"
+msgstr "Anzahl der Hinzufügungen"
+
+msgid "Number of deletions"
+msgstr "Anzahl der Löschungen"
+
+msgid "Hour of day"
+msgstr "Tagesstunde"
+
+msgid "Day of week"
+msgstr "Wochentag"
+
+msgid "Analyzing changes from the last %s days"
+msgstr "Analyse der Änderungen der letzten %s Tage"
+
+msgid "No data available"
+msgstr "Keine Daten verfügbar"
+
+msgid "Time period"
+msgstr "Zeitraum"
+
+msgid "Time period selection"
+msgstr "Zeitraumauswahl"
+
+msgid "Last 7 days"
+msgstr "Letzte 7 Tage"
+
+msgid "Last 30 days"
+msgstr "Letzte 30 Tage"
+
+msgid "Last 90 days"
+msgstr "Letzte 90 Tage"
+
+msgid "Last 6 months"
+msgstr "Letzte 6 Monate"
+
+msgid "Last year"
+msgstr "Letztes Jahr"
+
+msgid "All time"
+msgstr "Gesamter Zeitraum"
+
+msgid "Custom days"
+msgstr "Benutzerdefinierte Tage"
+
+msgid "Apply"
+msgstr "Anwenden"
+
+msgid "Showing statistics for all time"
+msgstr "Statistiken für den gesamten Zeitraum werden angezeigt"
+
+msgid "Filter by user"
+msgstr "Nach Benutzer filtern"
+
+msgid "All users"
+msgstr "Alle Benutzer"
+
+msgid "Users"
+msgstr "Benutzer"
+
+msgid "selected"
+msgstr "ausgewählt"
+
+msgid "Hold Ctrl (Windows) or Cmd (Mac) to select multiple users"
+msgstr "Halten Sie Strg (Windows) oder Cmd (Mac) gedrückt, um mehrere Benutzer auszuwählen"
+
+msgid "Apply filter"
+msgstr "Filter anwenden"
+
+msgid "Filtered by %s user(s)"
+msgstr "Gefiltert nach %s Benutzer(n)"
+
+msgid "and %s more"
+msgstr "und %s weitere"
+
+msgid "Showing data for all users"
+msgstr "Daten für alle Benutzer werden angezeigt"
+
+msgid "No changes found for selected user(s) in this time period"
+msgstr "Keine Änderungen für ausgewählte Benutzer in diesem Zeitraum gefunden"
+
+msgid "No changes found for selected user(s)"
+msgstr "Keine Änderungen für ausgewählte Benutzer gefunden"
+
+msgid "No changes found in this time period"
+msgstr "Keine Änderungen in diesem Zeitraum gefunden"
+
+msgid "Aggregate data across years"
+msgstr "Daten über Jahre hinweg aggregieren"
+
+msgid "Shows combined data with range shading"
+msgstr "Zeigt kombinierte Daten mit Bereichsschattierung"
+
+msgid "Shows data split by individual years"
+msgstr "Zeigt Daten aufgeteilt nach einzelnen Jahren"
+
+msgid "Total changes"
+msgstr "Gesamtänderungen"
+
+msgid "Range"
+msgstr "Bereich"
+
+msgid "Configure default settings for Insight Lens."
+msgstr "Standardeinstellungen für Insight Lens konfigurieren."
+
+msgid "Default time period"
+msgstr "Standard-Zeitraum"
+
+msgid "Default number of days to show in the Data Content tab (0 = all time). Range: 0-3650 days."
+msgstr "Standardanzahl der Tage im Dateninhalt-Tab (0 = gesamter Zeitraum). Bereich: 0-3650 Tage."
+
+msgid "The preferences for the module \"%s\" have been updated."
+msgstr "Die Einstellungen für das Modul \"%s\" wurden aktualisiert."
+
+msgid "Color scheme"
+msgstr "Farbschema"
+
+msgid "Classic colors"
+msgstr "Klassische Farben"
+
+msgid "Modern colors"
+msgstr "Moderne Farben"
+
+msgid "Soft, pastel colors like Google Charts"
+msgstr "Weiche Pastellfarben wie bei Google Charts"
+
+msgid "Vibrant, saturated colors"
+msgstr "Lebhafte, gesättigte Farben"
+
+msgid "Choose the color scheme for all chart visualizations."
+msgstr "Wählen Sie das Farbschema für alle Diagrammvisualisierungen."
+
+msgid "Commit Size Distribution"
+msgstr "Verteilung der Commit-Größe"
+
+msgid "Mean"
+msgstr "Mittelwert"
+
+msgid "Median"
+msgstr "Median"
+
+msgid "Messages"
+msgstr "Nachrichten"
+
+msgid "Mode"
+msgstr "Modus"
+
+msgid "Total commits"
+msgstr "Gesamtanzahl der Commits"
+
+msgid "Changes per commit"
+msgstr "Änderungen pro Commit"
+
+msgid "Number of commits"
+msgstr "Anzahl der Commits"
+
+msgid "Change Status"
+msgstr "Änderungsstatus"
+
+msgid "Accepted"
+msgstr "Akzeptiert"
+
+msgid "Rejected"
+msgstr "Abgelehnt"
+
+msgid "Pending"
+msgstr "Ausstehend"
+
+msgid "Custom Heatmap"
+msgstr "Benutzerdefinierte Heatmap"
+
+msgid "Custom Heatmap Configuration"
+msgstr "Benutzerdefinierte Heatmap-Konfiguration"
+
+msgid "X Axis (columns)"
+msgstr "X-Achse (Spalten)"
+
+msgid "Y Axis (rows)"
+msgstr "Y-Achse (Zeilen)"
+
+msgid "Value (measure)"
+msgstr "Wert (Kennzahl)"
+
+msgid "Generate"
+msgstr "Generieren"
+
+msgid "Filter by records (optional)"
+msgstr "Nach Datensätzen filtern (optional)"
+
+msgid "Filter by users (optional)"
+msgstr "Nach Benutzern filtern (optional)"
+
+msgid "Type to search for individuals or families"
+msgstr "Tippen Sie, um nach Personen oder Familien zu suchen"
+
+msgid "Heatmap"
+msgstr "Heatmap"
+
+msgid "Configure the axes and click Generate to create the heatmap"
+msgstr "Konfigurieren Sie die Achsen und klicken Sie auf Generieren, um die Heatmap zu erstellen"
+
+msgid "Search records..."
+msgstr "Datensätze suchen..."
+
+msgid "X and Y axes must be different"
+msgstr "X- und Y-Achse müssen unterschiedlich sein"
+
+msgid "Loading..."
+msgstr "Laden..."
+
+msgid "Error loading heatmap"
+msgstr "Fehler beim Laden der Heatmap"
+
+msgid "No data available for this combination"
+msgstr "Keine Daten für diese Kombination verfügbar"
+
+msgid "Unique records"
+msgstr "Eindeutige Datensätze"
+
+msgid "Unique users"
+msgstr "Eindeutige Benutzer"
+
+msgid "Unique days"
+msgstr "Eindeutige Tage"
+
+msgid "Hour"
+msgstr "Stunde"
+
+msgid "Day of month"
+msgstr "Tag des Monats"
+
+msgid "Record type"
+msgstr "Datensatztyp"
+
+msgid "Distribution of changes across different GEDCOM record types (individuals, families, sources, etc.)"
+msgstr "Verteilung der Änderungen auf verschiedene GEDCOM-Datensatztypen (Personen, Familien, Quellen usw.)"
+
+msgid "Records with the most lines changed in their GEDCOM data"
+msgstr "Datensätze mit den meisten geänderten Zeilen in ihren GEDCOM-Daten"
+
+msgid "Individuals with the highest number of edits"
+msgstr "Personen mit der höchsten Anzahl an Bearbeitungen"
+
+msgid "Types of facts (birth, death, marriage, etc.) that were edited most frequently"
+msgstr "Faktentypen (Geburt, Tod, Heirat usw.), die am häufigsten bearbeitet wurden"
+
+msgid "Types of facts that were newly added most frequently"
+msgstr "Faktentypen, die am häufigsten neu hinzugefügt wurden"
+
+msgid "Types of facts that were removed most frequently"
+msgstr "Faktentypen, die am häufigsten entfernt wurden"
+
+msgid "Individuals with the most fact changes (additions, edits, deletions)"
+msgstr "Personen mit den meisten Faktenänderungen (Hinzufügungen, Bearbeitungen, Löschungen)"
+
+msgid "Number of changes made by each user"
+msgstr "Anzahl der von jedem Benutzer vorgenommenen Änderungen"
+
+msgid "Days with the highest number of changes - intensive editing sessions"
+msgstr "Tage mit der höchsten Anzahl an Änderungen - intensive Bearbeitungssitzungen"
+
+msgid "Distribution of how many changes are made per commit - shows editing style (single changes vs batches)"
+msgstr "Verteilung der Änderungen pro Commit - zeigt Bearbeitungsstil (einzelne Änderungen vs. Stapel)"
+
+msgid "Ratio of accepted, rejected, and pending changes"
+msgstr "Verhältnis von akzeptierten, abgelehnten und ausstehenden Änderungen"
+
+msgid "Distribution of changes across hours of the day (0-23) - shows when editors are most active"
+msgstr "Verteilung der Änderungen über die Tagesstunden (0-23) - zeigt, wann Bearbeiter am aktivsten sind"
+
+msgid "Distribution of changes across days of the week - shows preferred editing days"
+msgstr "Verteilung der Änderungen über die Wochentage - zeigt bevorzugte Bearbeitungstage"
+
+msgid "Distribution of changes across days 1-31 - shows if certain days are more active"
+msgstr "Verteilung der Änderungen über die Tage 1-31 - zeigt, ob bestimmte Tage aktiver sind"
+
+msgid "Distribution of changes across months - shows seasonal editing patterns"
+msgstr "Verteilung der Änderungen über die Monate - zeigt saisonale Bearbeitungsmuster"
+
+msgid "Number of changes per year - shows long-term editing activity"
+msgstr "Anzahl der Änderungen pro Jahr - zeigt langfristige Bearbeitungsaktivität"
+
+msgid "Timeline showing editing activity week by week"
+msgstr "Zeitleiste mit wöchentlicher Bearbeitungsaktivität"
+
+msgid "Create custom visualizations by selecting dimensions for X and Y axes and a measure to display"
+msgstr "Erstellen Sie benutzerdefinierte Visualisierungen durch Auswahl von Dimensionen für X- und Y-Achse sowie einer anzuzeigenden Kennzahl"
+
+msgid "These statistics are based on the webtrees change log, which records all modifications to GEDCOM records. The timestamps reflect when changes were accepted/committed, not when data was originally entered. Each commit may contain multiple individual changes."
+msgstr "Diese Statistiken basieren auf dem webtrees-Änderungsprotokoll, das alle Änderungen an GEDCOM-Datensätzen erfasst. Die Zeitstempel geben an, wann Änderungen akzeptiert/übernommen wurden, nicht wann die Daten ursprünglich eingegeben wurden. Jeder Commit kann mehrere einzelne Änderungen enthalten."
+
+msgid "Data Content"
+msgstr "Dateninhalt"
+
+msgid "Work Patterns"
+msgstr "Arbeitsmuster"
+
+msgid "Changes by Year"
+msgstr "Änderungen nach Jahr"
+
+msgid "Changes by Day of Month"
+msgstr "Änderungen nach Monatstag"
+
+msgid "Year"
+msgstr "Jahr"
+
+msgid "Month"
+msgstr "Monat"
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "Access control"
+msgstr "Zugriffskontrolle"
+
+msgid "Require authentication"
+msgstr "Authentifizierung erforderlich"
+
+msgid "Only authenticated (logged in) users can view statistics"
+msgstr "Nur authentifizierte (angemeldete) Benutzer können Statistiken einsehen"
+
+msgid "Show own statistics only"
+msgstr "Nur eigene Statistiken anzeigen"
+
+msgid "Users can only see statistics for their own changes"
+msgstr "Benutzer können nur Statistiken ihrer eigenen Änderungen sehen"
+
+msgid "You must be logged in to view statistics"
+msgstr "Sie müssen angemeldet sein, um Statistiken anzuzeigen"
+
+msgid "Filter by individual (optional)"
+msgstr "Nach Person filtern (optional)"
+
+msgid "Fact Completeness Progress"
+msgstr "Fortschritt der Faktenvollständigkeit"
+
+msgid "Are we adding richer information over time?"
+msgstr "Fügen wir im Laufe der Zeit reichhaltigere Informationen hinzu?"
+
+msgid "Creation vs Modification Trend"
+msgstr "Erstellungs- vs. Änderungstrend"
+
+msgid "Are we creating records or improving existing ones?"
+msgstr "Erstellen wir neue Datensätze oder verbessern wir bestehende?"
+
+msgid "Edit Velocity Trend"
+msgstr "Bearbeitungsgeschwindigkeitstrend"
+
+msgid "Is editing activity accelerating or declining?"
+msgstr "Beschleunigt oder verlangsamt sich die Bearbeitungsaktivität?"
+
+msgid "Session Duration Distribution"
+msgstr "Verteilung der Sitzungsdauer"
+
+msgid "How long do users work in a single session?"
+msgstr "Wie lange arbeiten Benutzer in einer einzelnen Sitzung?"
+
+msgid "Collaboration Network"
+msgstr "Zusammenarbeitsnetzwerk"
+
+msgid "Which users work on the same records?"
+msgstr "Welche Benutzer arbeiten an denselben Datensätzen?"
+
+msgid "Network visualization requires additional library. Showing data table instead."
+msgstr "Netzwerkvisualisierung erfordert zusätzliche Bibliothek. Stattdessen wird Datentabelle angezeigt."
+
+msgid "Before Edit"
+msgstr "Vor Bearbeitung"
+
+msgid "After Edit"
+msgstr "Nach Bearbeitung"
+
+msgid "Net Gain"
+msgstr "Nettozuwachs"
+
+msgid "Avg Facts per Record"
+msgstr "Durchschn. Fakten pro Datensatz"
+
+msgid "New Records"
+msgstr "Neue Datensätze"
+
+msgid "Modifications"
+msgstr "Änderungen"
+
+msgid "Changes"
+msgstr "Änderungen"
+
+msgid "Changes per Week"
+msgstr "Änderungen pro Woche"
+
+msgid "Moving Average (4-week)"
+msgstr "Gleitender Durchschnitt (4 Wochen)"
+
+msgid "Number of Sessions"
+msgstr "Anzahl der Sitzungen"
+
+msgid "Sessions"
+msgstr "Sitzungen"
+
+msgid "User 1"
+msgstr "Benutzer 1"
+
+msgid "User 2"
+msgstr "Benutzer 2"
+
+msgid "Shared Records"
+msgstr "Gemeinsame Datensätze"
+
+msgid "No collaboration detected (users working on same records)."
+msgstr "Keine Zusammenarbeit erkannt (Benutzer, die an denselben Datensätzen arbeiten)."
+
+msgid "Activity Log"
+msgstr "Aktivitätsprotokoll"
+
+msgid "Authentication Summary"
+msgstr "Authentifizierungsübersicht"
+
+msgid "Login activity and failed attempts over last 90 days"
+msgstr "Anmeldeaktivität und fehlgeschlagene Versuche der letzten 90 Tage"
+
+msgid "Search Activity Timeline"
+msgstr "Suchaktivitäts-Zeitleiste"
+
+msgid "Search volume over last 90 days"
+msgstr "Suchvolumen der letzten 90 Tage"
+
+msgid "Most Searched Terms"
+msgstr "Meistgesuchte Begriffe"
+
+msgid "Top 20 search queries (last 90 days)"
+msgstr "Top 20 Suchanfragen (letzte 90 Tage)"
+
+msgid "Failed Login Attempts"
+msgstr "Fehlgeschlagene Anmeldeversuche"
+
+msgid "Security monitoring - top failed logins (last 30 days, min 3 attempts)"
+msgstr "Sicherheitsüberwachung - häufigste fehlgeschlagene Anmeldungen (letzte 30 Tage, mind. 3 Versuche)"
+
+msgid "Successful Logins"
+msgstr "Erfolgreiche Anmeldungen"
+
+msgid "Failed Attempts"
+msgstr "Fehlgeschlagene Versuche"
+
+msgid "Logins"
+msgstr "Anmeldungen"
+
+msgid "Failed"
+msgstr "Fehlgeschlagen"
+
+msgid "Searches"
+msgstr "Suchen"
+
+msgid "Search term"
+msgstr "Suchbegriff"
+
+msgid "Search Count"
+msgstr "Suchanzahl"
+
+msgid "Times Searched"
+msgstr "Anzahl der Suchen"
+
+msgid "Count"
+msgstr "Anzahl"
+
+msgid "No suspicious login activity detected"
+msgstr "Keine verdächtige Anmeldeaktivität erkannt"
+
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "IP Address"
+msgstr "IP-Adresse"
+
+msgid "Attempts"
+msgstr "Versuche"
+
+msgid "Last Attempt"
+msgstr "Letzter Versuch"
+
+msgid "Timeline display"
+msgstr "Zeitleistenanzeige"
+
+msgid "Controls how time-based charts display periods without data. When showing zeros, charts extend to the current date."
+msgstr "Steuert, wie zeitbasierte Diagramme Zeiträume ohne Daten anzeigen. Bei Anzeige von Nullen werden Diagramme bis zum aktuellen Datum erweitert."
+
+msgid "Skip empty periods"
+msgstr "Leere Zeiträume überspringen"
+
+msgid "Default - compact view"
+msgstr "Standard - kompakte Ansicht"
+
+msgid "Show zero periods"
+msgstr "Nullzeiträume anzeigen"
+
+msgid "Full timeline to current date"
+msgstr "Vollständige Zeitleiste bis zum aktuellen Datum"
+
+msgid "Choose how time-based charts handle periods with no activity."
+msgstr "Wählen Sie, wie zeitbasierte Diagramme Zeiträume ohne Aktivität behandeln."
+
+msgid "Fact type"
+msgstr "Faktentyp"
+
+msgid "Internal Messaging Activity"
+msgstr "Interne Nachrichtenaktivität"
+
+msgid "Most Active Communicators"
+msgstr "Aktivste Kommunikatoren"
+
+msgid "Timeline of internal messages sent between users"
+msgstr "Zeitleiste der intern zwischen Benutzern gesendeten Nachrichten"
+
+msgid "Users with the most sent and received internal messages"
+msgstr "Benutzer mit den meisten gesendeten und empfangenen internen Nachrichten"
+
+msgid "Number of searches performed over time"
+msgstr "Anzahl der durchgeführten Suchen im Zeitverlauf"
+
+msgid "Top 20 most frequently searched terms"
+msgstr "Top 20 der am häufigsten gesuchten Begriffe"
+
+msgid "Security monitoring - users/IPs with repeated failed login attempts"
+msgstr "Sicherheitsüberwachung - Benutzer/IPs mit wiederholten fehlgeschlagenen Anmeldeversuchen"
+
+msgid "Number of searches"
+msgstr "Anzahl der Suchen"
+
+msgid "Sent"
+msgstr "Gesendet"
+
+msgid "Received"
+msgstr "Empfangen"
+
+msgid "January"
+msgstr "Januar"
+
+msgid "February"
+msgstr "Februar"
+
+msgid "March"
+msgstr "März"
+
+msgid "April"
+msgstr "April"
+
+msgid "May"
+msgstr "Mai"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "August"
+msgstr "August"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "Dezember"
+
+msgid "Session Duration"
+msgstr "Sitzungsdauer"
+
+msgid "Number of sessions"
+msgstr "Anzahl der Sitzungen"
+
+msgid "Average changes per individual"
+msgstr "Durchschnittliche Änderungen pro Person"
+
+msgid "Data Content Statistics"
+msgstr "Dateninhalt-Statistiken"
+
+msgid "Editor Work Patterns"
+msgstr "Bearbeiter-Arbeitsmuster"
+
+msgid "Creation"
+msgstr "Erstellung"
+
+msgid "Modification"
+msgstr "Änderung"
+
+msgid "Successful logins"
+msgstr "Erfolgreiche Anmeldungen"
+
+msgid "Failed attempts"
+msgstr "Fehlgeschlagene Versuche"
+
+msgid "Absolute"
+msgstr "Absolut"
+
+msgid "Relative (%%)"
+msgstr "Relativ (%%)"
+
+msgid "Trend (4-period avg)"
+msgstr "Trend (4-Perioden-Durchschnitt)"
+
+msgid "No years selected"
+msgstr "Keine Jahre ausgewählt"
+
+msgid "All years"
+msgstr "Alle Jahre"
+
+msgid "Successful logins and failed login attempts"
+msgstr "Erfolgreiche Anmeldungen und fehlgeschlagene Anmeldeversuche"
+
+msgid "IP address display"
+msgstr "IP-Adressenanzeige"
+
+msgid "Hidden"
+msgstr "Ausgeblendet"
+
+msgid "Default - no IP addresses shown"
+msgstr "Standard - keine IP-Adressen angezeigt"
+
+msgid "Partially masked"
+msgstr "Teilweise maskiert"
+
+msgid "e.g., 192.168.xxx.xxx"
+msgstr "z.B. 192.168.xxx.xxx"
+
+msgid "Full IP address"
+msgstr "Vollständige IP-Adresse"
+
+msgid "Show complete IP addresses"
+msgstr "Vollständige IP-Adressen anzeigen"
+
+msgid "Controls how IP addresses are displayed in the Failed Login Attempts chart."
+msgstr "Steuert, wie IP-Adressen im Diagramm der fehlgeschlagenen Anmeldeversuche angezeigt werden."
+
+msgid "Filter by record (optional)"
+msgstr "Nach Datensatz filtern (optional)"
+
+msgid "Search individuals, families, sources..."
+msgstr "Personen, Familien, Quellen suchen..."
+
+msgid "Search and select multiple records of any type"
+msgstr "Mehrere Datensätze beliebigen Typs suchen und auswählen"

@@ -1,0 +1,631 @@
+<?php
+
+declare(strict_types=1);
+
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\Tree;
+
+/**
+ * @var string $title
+ * @var Tree $tree
+ * @var int $days
+ * @var string $module
+ * @var array<int,string> $allUsers
+ * @var array<int> $selectedUserIds
+ * @var array<string,int> $recordTypeStats
+ * @var array<string,int> $userStats
+ * @var array<string,int> $treeStats
+ * @var array<int,int> $hourStats
+ * @var array<string,int> $dayStats
+ * @var array<string,int> $monthStats
+ * @var array<string,int> $mostEditedIndividuals
+ * @var array<string,int> $mostEditedFacts
+ * @var array<string,int> $mostAddedFacts
+ * @var array<string,int> $mostDeletedFacts
+ * @var string $color_scheme
+ * @var string $timeline_display
+ * @var array{bins: array<string>, counts: array<int>, stats: array} $commitSizeDistribution
+ * @var array<string,int> $changeStatusStats
+ */
+
+// Generate contextual "no data" message based on current filters
+$noDataMessage = I18N::translate('No data available');
+if (!empty($selectedUserIds) && $days > 0) {
+    $noDataMessage = I18N::translate('No changes found for selected user(s) in this time period');
+} elseif (!empty($selectedUserIds)) {
+    $noDataMessage = I18N::translate('No changes found for selected user(s)');
+} elseif ($days > 0) {
+    $noDataMessage = I18N::translate('No changes found in this time period');
+}
+
+?>
+
+<style>
+    .date-range-selector .btn-group {
+        flex-wrap: wrap;
+        row-gap: 5px;
+    }
+
+    /* Loading overlay */
+    #chartsLoadingOverlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    #chartsLoadingOverlay.active {
+        display: flex;
+    }
+    .spinner-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .spinner-container > .spinner {
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top: 4px solid #fff;
+        width: 80px;
+        height: 80px;
+        animation: spin 1s linear infinite;
+    }
+    .spinner-timer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: monospace;
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* User filter dropdown styles - theme-aware colors */
+    .user-filter-container {
+        position: relative;
+        display: inline-block;
+    }
+    .user-filter-button {
+        cursor: pointer;
+        padding: 5px 10px;
+        border: 1px solid var(--bs-border-color, #6c757d);
+        background-color: transparent;
+        color: var(--bs-body-color, #6c757d);
+        border-radius: 3px;
+        font-size: 14px;
+        transition: all 0.15s ease-in-out;
+    }
+    .user-filter-button .wt-icon-individual,
+    .year-filter-button .wt-icon-calendar {
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+    .user-filter-button:hover {
+        background-color: var(--bs-secondary-bg, #6c757d);
+        color: var(--bs-body-color, #fff);
+    }
+    .user-filter-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        min-width: 250px;
+        padding: 10px;
+        margin-top: 2px;
+        background-color: var(--bs-body-bg, #fff);
+        color: var(--bs-body-color, #212529);
+        border: 1px solid var(--bs-border-color, rgba(0,0,0,0.15));
+        border-radius: 4px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    }
+    .user-filter-dropdown.show {
+        display: block;
+    }
+    .user-filter-list {
+        max-height: 300px;
+        overflow-y: auto;
+        margin: 5px 0;
+    }
+    /* Ensure labels inherit text color from theme */
+    .user-filter-dropdown .form-check-label {
+        color: var(--bs-body-color, inherit);
+    }
+    /* Style separators to match theme */
+    .user-filter-dropdown hr {
+        border-color: var(--bs-border-color, rgba(0,0,0,0.1));
+        opacity: 1;
+    }
+
+    /* Year filter dropdown styles - same as user filter */
+    .year-filter-container {
+        position: relative;
+        display: inline-block;
+    }
+    .year-filter-button {
+        cursor: pointer;
+        padding: 5px 10px;
+        border: 1px solid var(--bs-border-color, #6c757d);
+        background-color: transparent;
+        color: var(--bs-body-color, #6c757d);
+        border-radius: 3px;
+        font-size: 14px;
+        transition: all 0.15s ease-in-out;
+    }
+    .year-filter-button:hover {
+        background-color: var(--bs-secondary-bg, #6c757d);
+        color: var(--bs-body-color, #fff);
+    }
+    .year-filter-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        min-width: 200px;
+        padding: 10px;
+        margin-top: 2px;
+        background-color: var(--bs-body-bg, #fff);
+        color: var(--bs-body-color, #212529);
+        border: 1px solid var(--bs-border-color, rgba(0,0,0,0.15));
+        border-radius: 4px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    }
+    .year-filter-dropdown.show {
+        display: block;
+    }
+    .year-filter-list {
+        max-height: 250px;
+        overflow-y: auto;
+        margin: 5px 0;
+    }
+    .year-filter-dropdown .form-check-label {
+        color: var(--bs-body-color, inherit);
+    }
+    .year-filter-dropdown hr {
+        border-color: var(--bs-border-color, rgba(0,0,0,0.1));
+        opacity: 1;
+    }
+
+
+    @media (max-width: 768px) {
+        .date-range-selector .btn-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .date-range-selector .btn-group .btn {
+            width: 100%;
+        }
+        .date-range-selector .row > .col-auto,
+        .date-range-selector .row > .col {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-bottom: 10px !important;
+        }
+        .date-range-selector .row > .col-auto label {
+            display: block;
+            margin-bottom: 5px;
+        }
+    }
+
+    /* Vertically center chart headers */
+    .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 3rem;
+    }
+    .card-header .card-title {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<!-- Loading overlay -->
+<div id="chartsLoadingOverlay">
+    <div class="spinner-container">
+        <div class="spinner"></div>
+        <div class="spinner-timer" id="spinnerTimer">0s</div>
+    </div>
+</div>
+
+<h2 class="wt-page-title">
+    <?= $title ?>
+    <span class="wt-icon-help" title="<?= I18N::translate('These statistics are based on the webtrees change log, which records all modifications to GEDCOM records. The timestamps reflect when changes were accepted/committed, not when data was originally entered. Each commit may contain multiple individual changes.') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+</h2>
+
+<!-- Global Filters (control all tabs) -->
+<!-- Date Range Selector -->
+<div class="card mb-4 date-range-selector">
+    <div class="card-body">
+        <form id="chartsFilterForm" method="get" class="form-inline">
+            <input type="hidden" name="tree" value="<?= e($tree->name()) ?>">
+            <input type="hidden" name="module" value="<?= e($module) ?>">
+            <input type="hidden" name="action" value="Charts">
+            <input type="hidden" name="days" value="<?= $days ?>">
+
+            <div class="row w-100 align-items-center">
+                <div class="col-auto">
+                    <label class="mb-0"><strong><?= I18N::translate('Time period') ?>:</strong></label>
+                </div>
+                <div class="col-auto">
+                    <div class="btn-group btn-group-sm" role="group" aria-label="<?= I18N::translate('Time period selection') ?>">
+                        <button type="button" name="days" value="7" class="btn btn-<?= $days === 7 ? 'primary' : 'outline-secondary' ?>">
+                            <?= I18N::translate('Last 7 days') ?>
+                        </button>
+                        <button type="button" name="days" value="30" class="btn btn-<?= $days === 30 ? 'primary' : 'outline-secondary' ?>">
+                            <?= I18N::translate('Last 30 days') ?>
+                        </button>
+                        <button type="button" name="days" value="90" class="btn btn-<?= $days === 90 ? 'primary' : 'outline-secondary' ?>">
+                            <?= I18N::translate('Last 90 days') ?>
+                        </button>
+                        <button type="button" name="days" value="180" class="btn btn-<?= $days === 180 ? 'primary' : 'outline-secondary' ?>">
+                            <?= I18N::translate('Last 6 months') ?>
+                        </button>
+                        <button type="button" name="days" value="365" class="btn btn-<?= $days === 365 ? 'primary' : 'outline-secondary' ?>">
+                            <?= I18N::translate('Last year') ?>
+                        </button>
+                        <button type="button" name="days" value="0" class="btn btn-<?= $days === 0 ? 'primary' : 'outline-secondary' ?>">
+                            <?= I18N::translate('All time') ?>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-auto ml-3">
+                    <div class="user-filter-container">
+                        <button type="button" class="user-filter-button" id="userFilterButton">
+                            <span class="wt-icon-individual"></span>
+                            <?php if (!empty($selectedUserIds)): ?>
+                                <?= I18N::translate('Users') ?>: <?= count($selectedUserIds) ?> <?= I18N::translate('selected') ?>
+                            <?php else: ?>
+                                <?= I18N::translate('All users') ?>
+                            <?php endif; ?>
+                            ▼
+                        </button>
+                        <div class="user-filter-dropdown" id="userFilterDropdown">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="user_all" onchange="toggleAllUsers(this)">
+                                <label class="form-check-label" for="user_all">
+                                    <strong><?= I18N::translate('All users') ?></strong>
+                                </label>
+                            </div>
+                            <hr style="margin: 5px 0;">
+                            <div class="user-filter-list">
+                                <?php foreach ($allUsers as $userId => $userName): ?>
+                                    <div class="form-check">
+                                        <input class="form-check-input user-checkbox" type="checkbox" name="users[]" value="<?= $userId ?>" id="user_<?= $userId ?>"
+                                               <?= in_array($userId, $selectedUserIds, true) ? 'checked' : '' ?>>
+                                        <label class="form-check-label" for="user_<?= $userId ?>">
+                                            <?= e($userName) ?>
+                                        </label>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                            <hr style="margin: 5px 0;">
+                            <button type="submit" class="btn btn-sm btn-primary btn-block">
+                                <?= I18N::translate('Apply filter') ?>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto ml-3">
+                    <div class="year-filter-container">
+                        <button type="button" class="year-filter-button" id="yearFilterButton">
+                            <span class="wt-icon-calendar"></span>
+                            <span id="yearFilterButtonText"><?= I18N::translate('All years') ?></span>
+                            <span class="badge bg-secondary ms-1" id="yearFilterCount"><?= count($availableYears) ?></span>
+                            ▼
+                        </button>
+                        <div class="year-filter-dropdown" id="yearFilterDropdown">
+                            <div class="p-2">
+                                <button type="button" class="btn btn-sm btn-outline-secondary w-100 mb-2" id="yearSelectAll">
+                                    <?= I18N::translate('Select all') ?>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary w-100 mb-2" id="yearDeselectAll">
+                                    <?= I18N::translate('Deselect all') ?>
+                                </button>
+                                <hr>
+                                <div class="year-filter-list">
+                                    <?php foreach ($availableYears as $year): ?>
+                                    <div class="form-check">
+                                        <input class="form-check-input year-checkbox" type="checkbox" value="<?= $year ?>" id="year<?= $year ?>">
+                                        <label class="form-check-label" for="year<?= $year ?>">
+                                            <?= $year ?>
+                                        </label>
+                                    </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Tabs Navigation -->
+<ul class="nav nav-tabs mb-4" id="statsTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="data-tab" data-bs-toggle="tab" data-bs-target="#data-content" type="button" role="tab" aria-controls="data-content" aria-selected="true">
+            <?= I18N::translate('Data Content Statistics') ?>
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="editor-tab" data-bs-toggle="tab" data-bs-target="#editor-patterns" type="button" role="tab" aria-controls="editor-patterns" aria-selected="false">
+            <?= I18N::translate('Editor Work Patterns') ?>
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="heatmap-tab" data-bs-toggle="tab" data-bs-target="#custom-heatmap" type="button" role="tab" aria-controls="custom-heatmap" aria-selected="false">
+            <?= I18N::translate('Custom Heatmap') ?>
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="activity-log-tab" data-bs-toggle="tab" data-bs-target="#activity-log" type="button" role="tab" aria-controls="activity-log" aria-selected="false">
+            <?= I18N::translate('Activity Log') ?>
+        </button>
+    </li>
+</ul>
+
+<!-- Tab Content -->
+<div class="tab-content" id="statsTabsContent">
+    <!-- Data Content Statistics Tab -->
+    <div class="tab-pane fade show active" id="data-content" role="tabpanel" aria-labelledby="data-tab">
+        <?php include __DIR__ . '/_tab1-data-content.phtml'; ?>
+    </div><!-- End Data Content Statistics Tab -->
+
+    <!-- Editor Work Patterns Tab -->
+    <div class="tab-pane fade" id="editor-patterns" role="tabpanel" aria-labelledby="editor-tab">
+        <?php include __DIR__ . '/_tab2-editor-patterns.phtml'; ?>
+    </div><!-- End Editor Work Patterns Tab -->
+
+    <!-- Custom Heatmap Tab -->
+    <div class="tab-pane fade" id="custom-heatmap" role="tabpanel" aria-labelledby="heatmap-tab">
+        <?php include __DIR__ . '/_tab3-custom-heatmap.phtml'; ?>
+    </div><!-- End Custom Heatmap Tab -->
+
+    <!-- Activity Log Tab -->
+    <div class="tab-pane fade" id="activity-log" role="tabpanel" aria-labelledby="activity-log-tab">
+        <?php include __DIR__ . '/_tab4-activity-log.phtml'; ?>
+    </div><!-- End Activity Log Tab -->
+
+</div><!-- End Tab Content -->
+
+<!-- Load Chart.js from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<!-- Load Chart.js Matrix plugin for heatmap -->
+<script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@2.0.1/dist/chartjs-chart-matrix.min.js"></script>
+
+<!-- Translations object for JavaScript -->
+<script>
+const LensT = {
+    absolute: '<?= I18N::translate("Absolute") ?>',
+    accepted: '<?= I18N::translate("Accepted") ?>',
+    activityLog: '<?= I18N::translate("Activity Log") ?>',
+    afterEdit: '<?= I18N::translate("After Edit") ?>',
+    aggregateDataAcrossYears: '<?= I18N::translate("Aggregate data across years") ?>',
+    allTime: '<?= I18N::translate("All time") ?>',
+    allUsers: '<?= I18N::translate("All users") ?>',
+    allYears: '<?= I18N::translate("All years") ?>',
+    analyzingChangesFromTheLastDays: '<?= I18N::translate("Analyzing changes from the last %s days", "__DAYS__") ?>',
+    applyFilter: '<?= I18N::translate("Apply filter") ?>',
+    april: '<?= I18N::translate("April") ?>',
+    attempts: '<?= I18N::translate("Attempts") ?>',
+    august: '<?= I18N::translate("August") ?>',
+    authenticationSummary: '<?= I18N::translate("Authentication Summary") ?>',
+    averageChangesPerIndividual: '<?= I18N::translate("Average changes per individual") ?>',
+    avgFactsPerRecord: '<?= I18N::translate("Avg Facts per Record") ?>',
+    beforeEdit: '<?= I18N::translate("Before Edit") ?>',
+    biggestWorkSessions: '<?= I18N::translate("Biggest Work Sessions") ?>',
+    changeStatus: '<?= I18N::translate("Change Status") ?>',
+    changes: '<?= I18N::translate("Changes") ?>',
+    changesByDayOfMonth: '<?= I18N::translate("Changes by Day of Month") ?>',
+    changesByDayOfWeek: '<?= I18N::translate("Changes by Day of Week") ?>',
+    changesByHour: '<?= I18N::translate("Changes by Hour") ?>',
+    changesByMonth: '<?= I18N::translate("Changes by Month") ?>',
+    changesByRecordType: '<?= I18N::translate("Changes by Record Type") ?>',
+    changesByUser: '<?= I18N::translate("Changes by User") ?>',
+    changesByYear: '<?= I18N::translate("Changes by Year") ?>',
+    changesPerCommit: '<?= I18N::translate("Changes per commit") ?>',
+    changesPerWeek: '<?= I18N::translate("Changes per Week") ?>',
+    commitSizeDistribution: '<?= I18N::translate("Commit Size Distribution") ?>',
+    count: '<?= I18N::translate("Count") ?>',
+    creation: '<?= I18N::translate("Creation") ?>',
+    creationVsModificationTrend: '<?= I18N::translate("Creation vs Modification Trend") ?>',
+    customHeatmap: '<?= I18N::translate("Custom Heatmap") ?>',
+    customHeatmapConfiguration: '<?= I18N::translate("Custom Heatmap Configuration") ?>',
+    dataContentStatistics: '<?= I18N::translate("Data Content Statistics") ?>',
+    date: '<?= I18N::translate("Date") ?>',
+    dayOfMonth: '<?= I18N::translate("Day of month") ?>',
+    dayOfWeek: '<?= I18N::translate("Day of week") ?>',
+    december: '<?= I18N::translate("December") ?>',
+    deselectAll: '<?= I18N::translate("Deselect all") ?>',
+    duration: '<?= I18N::translate("Duration") ?>',
+    editVelocityTrend: '<?= I18N::translate("Edit Velocity Trend") ?>',
+    editingActivityOverTime: '<?= I18N::translate("Editing Activity Over Time") ?>',
+    editorWorkPatterns: '<?= I18N::translate("Editor Work Patterns") ?>',
+    errorLoadingData: '<?= I18N::translate("Error loading data") ?>',
+    errorLoadingHeatmap: '<?= I18N::translate("Error loading heatmap") ?>',
+    factCompletenessProgress: '<?= I18N::translate("Fact Completeness Progress") ?>',
+    factType: '<?= I18N::translate("Fact type") ?>',
+    failedAttempts: '<?= I18N::translate("Failed attempts") ?>',
+    failedLoginAttempts: '<?= I18N::translate("Failed Login Attempts") ?>',
+    family: '<?= I18N::translate("Family") ?>',
+    february: '<?= I18N::translate("February") ?>',
+    filteredByUsers: '<?= I18N::translate("Filtered by %s user(s)", "__COUNT__") ?>',
+    friday: '<?= I18N::translate("Friday") ?>',
+    generate: '<?= I18N::translate("Generate") ?>',
+    header: '<?= I18N::translate("Header") ?>',
+    heatmap: '<?= I18N::translate("Heatmap") ?>',
+    hour: '<?= I18N::translate("Hour") ?>',
+    hourOfDay: '<?= I18N::translate("Hour of day") ?>',
+    individual: '<?= I18N::translate("Individual") ?>',
+    internalMessagingActivity: '<?= I18N::translate("Internal Messaging Activity") ?>',
+    ipAddress: '<?= I18N::translate("IP Address") ?>',
+    january: '<?= I18N::translate("January") ?>',
+    july: '<?= I18N::translate("July") ?>',
+    june: '<?= I18N::translate("June") ?>',
+    largestChanges: '<?= I18N::translate("Largest Changes") ?>',
+    last30Days: '<?= I18N::translate("Last 30 days") ?>',
+    last6Months: '<?= I18N::translate("Last 6 months") ?>',
+    last7Days: '<?= I18N::translate("Last 7 days") ?>',
+    last90Days: '<?= I18N::translate("Last 90 days") ?>',
+    lastAttempt: '<?= I18N::translate("Last Attempt") ?>',
+    lastYear: '<?= I18N::translate("Last year") ?>',
+    loading: '<?= I18N::translate("Loading...") ?>',
+    location: '<?= I18N::translate("Location") ?>',
+    march: '<?= I18N::translate("March") ?>',
+    may: '<?= I18N::translate("May") ?>',
+    mean: '<?= I18N::translate("Mean") ?>',
+    media: '<?= I18N::translate("Media object") ?>',
+    median: '<?= I18N::translate("Median") ?>',
+    messages: '<?= I18N::translate("Messages") ?>',
+    minMaxRangeAcrossYears: '<?= I18N::translate("Min-max range across years") ?>',
+    modification: '<?= I18N::translate("Modification") ?>',
+    modifications: '<?= I18N::translate("Modifications") ?>',
+    monday: '<?= I18N::translate("Monday") ?>',
+    month: '<?= I18N::translate("Month") ?>',
+    mostActiveCommunicators: '<?= I18N::translate("Most Active Communicators") ?>',
+    mostAddedFacts: '<?= I18N::translate("Most Added Facts") ?>',
+    mostChangedFactsPerIndividual: '<?= I18N::translate("Most Changed Facts Per Individual") ?>',
+    mostDeletedFacts: '<?= I18N::translate("Most Deleted Facts") ?>',
+    mostEditedFacts: '<?= I18N::translate("Most Edited Facts") ?>',
+    mostEditedIndividuals: '<?= I18N::translate("Most Edited Individuals") ?>',
+    mostSearchedTerms: '<?= I18N::translate("Most Searched Terms") ?>',
+    movingAverage4Week: '<?= I18N::translate("Moving Average (4-week)") ?>',
+    netGain: '<?= I18N::translate("Net Gain") ?>',
+    newRecords: '<?= I18N::translate("New Records") ?>',
+    noChangesFoundForSelectedUsers: '<?= I18N::translate("No changes found for selected user(s)") ?>',
+    noChangesFoundInThisTimePeriod: '<?= I18N::translate("No changes found in this time period") ?>',
+    noDataAvailable: '<?= I18N::translate("No data available") ?>',
+    noDataAvailableForThisCombination: '<?= I18N::translate("No data available for this combination") ?>',
+    noSuspiciousLoginActivityDetected: '<?= I18N::translate("No suspicious login activity detected") ?>',
+    noYearsSelected: '<?= I18N::translate("No years selected") ?>',
+    note: '<?= I18N::translate("Note") ?>',
+    november: '<?= I18N::translate("November") ?>',
+    numberOfAdditions: '<?= I18N::translate("Number of additions") ?>',
+    numberOfChanges: '<?= I18N::translate("Number of changes") ?>',
+    numberOfCommits: '<?= I18N::translate("Number of commits") ?>',
+    numberOfDeletions: '<?= I18N::translate("Number of deletions") ?>',
+    numberOfSearches: '<?= I18N::translate("Number of searches") ?>',
+    numberOfSessions: '<?= I18N::translate("Number of sessions") ?>',
+    october: '<?= I18N::translate("October") ?>',
+    other: '<?= I18N::translate("Other") ?>',
+    pending: '<?= I18N::translate("Pending") ?>',
+    percentageOfChanges: '<?= I18N::translate("Percentage of changes (%%)") ?>',
+    period: '<?= I18N::translate("Period") ?>',
+    recordType: '<?= I18N::translate("Record type") ?>',
+    rejected: '<?= I18N::translate("Rejected") ?>',
+    relativePercent: '<?= I18N::translate("Relative (%%)") ?>',
+    repository: '<?= I18N::translate("Repository") ?>',
+    saturday: '<?= I18N::translate("Saturday") ?>',
+    searchActivityTimeline: '<?= I18N::translate("Search Activity Timeline") ?>',
+    searches: '<?= I18N::translate("Searches") ?>',
+    searchTerm: '<?= I18N::translate("Search term") ?>',
+    selectAll: '<?= I18N::translate("Select all") ?>',
+    selected: '<?= I18N::translate("selected") ?>',
+    september: '<?= I18N::translate("September") ?>',
+    sessionDuration: '<?= I18N::translate("Session Duration") ?>',
+    sessionDurationDistribution: '<?= I18N::translate("Session Duration Distribution") ?>',
+    sessions: '<?= I18N::translate("Sessions") ?>',
+    showingDataForAllUsers: '<?= I18N::translate("Showing data for all users") ?>',
+    showingStatisticsForAllTime: '<?= I18N::translate("Showing statistics for all time") ?>',
+    showsCombinedDataWithRangeShading: '<?= I18N::translate("Shows combined data with range shading") ?>',
+    showsDataSplitByIndividualYears: '<?= I18N::translate("Shows data split by individual years") ?>',
+    source: '<?= I18N::translate("Source") ?>',
+    submission: '<?= I18N::translate("Submission") ?>',
+    submitter: '<?= I18N::translate("Submitter") ?>',
+    successfulLogins: '<?= I18N::translate("Successful logins") ?>',
+    sunday: '<?= I18N::translate("Sunday") ?>',
+    thursday: '<?= I18N::translate("Thursday") ?>',
+    timePeriod: '<?= I18N::translate("Time period") ?>',
+    totalChanges: '<?= I18N::translate("Total changes") ?>',
+    totalChangesPercent: '<?= I18N::translate("Total changes (%%)") ?>',
+    trend4PeriodAvg: '<?= I18N::translate("Trend (4-period avg)") ?>',
+    tuesday: '<?= I18N::translate("Tuesday") ?>',
+    uniqueDays: '<?= I18N::translate("Unique days") ?>',
+    uniqueRecords: '<?= I18N::translate("Unique records") ?>',
+    uniqueUsers: '<?= I18N::translate("Unique users") ?>',
+    user: '<?= I18N::translate("User") ?>',
+    username: '<?= I18N::translate("Username") ?>',
+    users: '<?= I18N::translate("Users") ?>',
+    valueMeasure: '<?= I18N::translate("Value (measure)") ?>',
+    wednesday: '<?= I18N::translate("Wednesday") ?>',
+    xAndYAxesMustBeDifferent: '<?= I18N::translate("X and Y axes must be different") ?>',
+    xAxisColumns: '<?= I18N::translate("X Axis (columns)") ?>',
+    yAxisRows: '<?= I18N::translate("Y Axis (rows)") ?>',
+    year: '<?= I18N::translate("Year") ?>',
+    years: '<?= I18N::translate("years") ?>',
+};
+
+// Configuration object with PHP-generated data
+const LensConfig = {
+    // API endpoints
+    dataEndpointUrl: '<?= e(route('module', ['module' => $module, 'action' => 'Data', 'tree' => $tree->name()])) ?>',
+    heatmapEndpointUrl: '<?= e(route('module', ['module' => $module, 'action' => 'HeatmapAjax', 'tree' => $tree->name()])) ?>',
+    // Color scheme setting
+    colorScheme: '<?= e($color_scheme) ?>',
+    // Timeline display setting: 'skip_empty' or 'show_zeros'
+    timelineDisplay: '<?= e($timeline_display) ?>',
+    // Default days from module settings
+    defaultDays: <?= (int)$days ?>,
+    // Initial data from PHP
+    initialData: {
+        hourStats: <?= json_encode($hourStats ?? [], JSON_THROW_ON_ERROR) ?>,
+        dayStats: <?= json_encode($dayStats ?? [], JSON_THROW_ON_ERROR) ?>,
+        dayOfMonthStats: <?= json_encode($dayOfMonthStats ?? [], JSON_THROW_ON_ERROR) ?>,
+        monthStats: <?= json_encode($monthStats ?? [], JSON_THROW_ON_ERROR) ?>
+    }
+};
+</script>
+
+<!-- Lens Charts JavaScript (modular structure) -->
+<script src="<?= e($jsCommonUrl) ?>"></script>
+<script src="<?= e($jsDataUrl) ?>"></script>
+<script src="<?= e($jsEditorUrl) ?>"></script>
+
+<!-- Lazy load Tab 3 (Heatmap) and Tab 4 (Activity Log) scripts -->
+<script>
+(function() {
+    let heatmapLoaded = false;
+    let activityLoaded = false;
+
+    // Lazy load heatmap script when Tab 3 is clicked
+    const heatmapTab = document.getElementById('heatmap-tab');
+    if (heatmapTab) {
+        heatmapTab.addEventListener('shown.bs.tab', function() {
+            if (!heatmapLoaded) {
+                const script = document.createElement('script');
+                script.src = <?= json_encode($jsHeatmapUrl) ?>;
+                document.body.appendChild(script);
+                heatmapLoaded = true;
+            }
+        });
+    }
+
+    // Lazy load activity script when Tab 4 is clicked
+    const activityTab = document.getElementById('activity-log-tab');
+    if (activityTab) {
+        activityTab.addEventListener('shown.bs.tab', function() {
+            if (!activityLoaded) {
+                const script = document.createElement('script');
+                script.src = <?= json_encode($jsActivityUrl) ?>;
+                document.body.appendChild(script);
+                activityLoaded = true;
+            }
+        });
+    }
+})();
+</script>

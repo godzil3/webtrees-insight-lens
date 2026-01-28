@@ -1,0 +1,166 @@
+<?php
+
+declare(strict_types=1);
+
+use Fisharebest\Webtrees\I18N;
+
+/**
+ * Tab 1: Data Content Statistics
+ * Data loaded via AJAX - overlays show "no data" initially, JS updates them.
+ *
+ * @var string $noDataMessage
+ */
+
+?>
+<!-- Content Statistics Section -->
+
+<div class="row">
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Changes by Record Type') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Distribution of changes across different GEDCOM record types (individuals, families, sources, etc.)') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="recordTypeChart" style="max-height: 300px; width: 100%;"></canvas>
+                <div id="recordTypeChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Largest Changes') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Records with the most lines changed in their GEDCOM data') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="largestChangesChart" style="max-height: 600px; width: 100%;"></canvas>
+                <div id="largestChangesChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Individual and Fact Statistics -->
+<div class="row">
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Most Edited Individuals') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Individuals with the highest number of edits') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="mostEditedIndividualsChart" style="max-height: 600px; width: 100%;"></canvas>
+                <div id="mostEditedIndividualsChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Most Edited Facts') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Types of facts (birth, death, marriage, etc.) that were edited most frequently') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="mostEditedFactsChart" style="max-height: 600px; width: 100%;"></canvas>
+                <div id="mostEditedFactsChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Most Added Facts') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Types of facts that were newly added most frequently') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="mostAddedFactsChart" style="max-height: 600px; width: 100%;"></canvas>
+                <div id="mostAddedFactsChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Most Deleted Facts') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Types of facts that were removed most frequently') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="mostDeletedFactsChart" style="max-height: 600px; width: 100%;"></canvas>
+                <div id="mostDeletedFactsNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Most Changed Facts Per Individual Section -->
+<div class="row">
+    <div class="col-lg-6 col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Most Changed Facts Per Individual') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Individuals with the most fact changes (additions, edits, deletions)') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="mostChangedFactsPerIndividualChart" style="max-height: 600px; width: 100%;"></canvas>
+                <div id="mostChangedFactsPerIndividualChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fact Completeness Progress -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Fact Completeness Progress') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Are we adding richer information over time?') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="factCompletenessChart" style="max-height: 300px; width: 100%;"></canvas>
+                <div id="factCompletenessChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Creation vs Modification Trend -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= I18N::translate('Creation vs Modification Trend') ?></h3>
+                <span class="wt-icon-help" title="<?= I18N::translate('Are we creating records or improving existing ones?') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <canvas id="creationVsModificationChart" style="max-height: 300px; width: 100%;"></canvas>
+                <div id="creationVsModificationChartNoData" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                    <p class="text-muted text-center" style="font-size: 16px; margin: 0;"><?= $noDataMessage ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

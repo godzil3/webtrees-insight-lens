@@ -1,0 +1,758 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: webtrees-lens 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-24 12:00+0000\n"
+"PO-Revision-Date: 2025-01-24 12:00+0000\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Insight Lens"
+msgstr "Insight Lens"
+
+msgid "Visualize genealogy change statistics with interactive charts"
+msgstr "Visualiser genealogiske ændringsstatistikker med interaktive diagrammer"
+
+msgid "Change Statistics"
+msgstr "Ændringsstatistikker"
+
+msgid "Changes by Record Type"
+msgstr "Ændringer efter posttype"
+
+msgid "Changes by User"
+msgstr "Ændringer efter bruger"
+
+msgid "Changes by Tree"
+msgstr "Ændringer efter stamtræ"
+
+msgid "Changes by Hour"
+msgstr "Ændringer efter time"
+
+msgid "Changes by Day of Week"
+msgstr "Ændringer efter ugedag"
+
+msgid "Changes by Month"
+msgstr "Ændringer efter måned"
+
+msgid "Most Edited Individuals"
+msgstr "Mest redigerede personer"
+
+msgid "Most Edited Facts"
+msgstr "Mest redigerede fakta"
+
+msgid "Most Added Facts"
+msgstr "Mest tilføjede fakta"
+
+msgid "Most Deleted Facts"
+msgstr "Mest slettede fakta"
+
+msgid "Most Changed Facts Per Individual"
+msgstr "Mest ændrede fakta pr. person"
+
+msgid "Editing Activity Over Time"
+msgstr "Redigeringsaktivitet over tid"
+
+msgid "Biggest Work Sessions"
+msgstr "Største arbejdssessioner"
+
+msgid "Largest Changes"
+msgstr "Største ændringer"
+
+msgid "Weekly editing activity - shows work intensity over time"
+msgstr "Ugentlig redigeringsaktivitet - viser arbejdsintensitet over tid"
+
+msgid "Days with most editing activity"
+msgstr "Dage med mest redigeringsaktivitet"
+
+msgid "Most comprehensive edits by GEDCOM size"
+msgstr "Mest omfattende redigeringer efter GEDCOM-størrelse"
+
+msgid "Lines changed"
+msgstr "Ændrede linjer"
+
+msgid "Individual"
+msgstr "Person"
+
+msgid "Family"
+msgstr "Familie"
+
+msgid "Source"
+msgstr "Kilde"
+
+msgid "Repository"
+msgstr "Arkiv"
+
+msgid "Media"
+msgstr "Medier"
+
+msgid "Note"
+msgstr "Note"
+
+msgid "Location"
+msgstr "Placering"
+
+msgid "Submitter"
+msgstr "Indsender"
+
+msgid "Submission"
+msgstr "Indsendelse"
+
+msgid "Header"
+msgstr "Overskrift"
+
+msgid "Other"
+msgstr "Andet"
+
+msgid "Number of changes"
+msgstr "Antal ændringer"
+
+msgid "Number of additions"
+msgstr "Antal tilføjelser"
+
+msgid "Number of deletions"
+msgstr "Antal sletninger"
+
+msgid "Hour of day"
+msgstr "Time på dagen"
+
+msgid "Day of week"
+msgstr "Ugedag"
+
+msgid "Analyzing changes from the last %s days"
+msgstr "Analyserer ændringer fra de sidste %s dage"
+
+msgid "No data available"
+msgstr "Ingen data tilgængelig"
+
+msgid "Time period"
+msgstr "Tidsperiode"
+
+msgid "Time period selection"
+msgstr "Valg af tidsperiode"
+
+msgid "Last 7 days"
+msgstr "Sidste 7 dage"
+
+msgid "Last 30 days"
+msgstr "Sidste 30 dage"
+
+msgid "Last 90 days"
+msgstr "Sidste 90 dage"
+
+msgid "Last 6 months"
+msgstr "Sidste 6 måneder"
+
+msgid "Last year"
+msgstr "Sidste år"
+
+msgid "All time"
+msgstr "Hele perioden"
+
+msgid "Custom days"
+msgstr "Brugerdefinerede dage"
+
+msgid "Apply"
+msgstr "Anvend"
+
+msgid "Showing statistics for all time"
+msgstr "Viser statistik for hele perioden"
+
+msgid "Filter by user"
+msgstr "Filtrer efter bruger"
+
+msgid "All users"
+msgstr "Alle brugere"
+
+msgid "Users"
+msgstr "Brugere"
+
+msgid "selected"
+msgstr "valgt"
+
+msgid "Hold Ctrl (Windows) or Cmd (Mac) to select multiple users"
+msgstr "Hold Ctrl (Windows) eller Cmd (Mac) nede for at vælge flere brugere"
+
+msgid "Apply filter"
+msgstr "Anvend filter"
+
+msgid "Filtered by %s user(s)"
+msgstr "Filtreret efter %s bruger(e)"
+
+msgid "and %s more"
+msgstr "og %s mere"
+
+msgid "Showing data for all users"
+msgstr "Viser data for alle brugere"
+
+msgid "No changes found for selected user(s) in this time period"
+msgstr "Ingen ændringer fundet for valgte bruger(e) i denne periode"
+
+msgid "No changes found for selected user(s)"
+msgstr "Ingen ændringer fundet for valgte bruger(e)"
+
+msgid "No changes found in this time period"
+msgstr "Ingen ændringer fundet i denne periode"
+
+msgid "Aggregate data across years"
+msgstr "Sammenlæg data på tværs af år"
+
+msgid "Shows combined data with range shading"
+msgstr "Viser kombinerede data med områdeskygning"
+
+msgid "Shows data split by individual years"
+msgstr "Viser data opdelt efter individuelle år"
+
+msgid "Total changes"
+msgstr "Samlede ændringer"
+
+msgid "Range"
+msgstr "Område"
+
+msgid "Configure default settings for Insight Lens."
+msgstr "Konfigurer standardindstillinger for Insight Lens."
+
+msgid "Default time period"
+msgstr "Standard tidsperiode"
+
+msgid "Default number of days to show in the Data Content tab (0 = all time). Range: 0-3650 days."
+msgstr "Standard antal dage at vise i fanen Dataindhold (0 = hele perioden). Område: 0-3650 dage."
+
+msgid "The preferences for the module \"%s\" have been updated."
+msgstr "Indstillingerne for modulet \"%s\" er blevet opdateret."
+
+msgid "Color scheme"
+msgstr "Farveskema"
+
+msgid "Classic colors"
+msgstr "Klassiske farver"
+
+msgid "Modern colors"
+msgstr "Moderne farver"
+
+msgid "Soft, pastel colors like Google Charts"
+msgstr "Bløde pastelfarver som Google Charts"
+
+msgid "Vibrant, saturated colors"
+msgstr "Levende, mættede farver"
+
+msgid "Choose the color scheme for all chart visualizations."
+msgstr "Vælg farveskemaet for alle diagramvisualiseringer."
+
+msgid "Commit Size Distribution"
+msgstr "Fordeling af commit-størrelse"
+
+msgid "Mean"
+msgstr "Gennemsnit"
+
+msgid "Median"
+msgstr "Median"
+
+msgid "Messages"
+msgstr "Beskeder"
+
+msgid "Mode"
+msgstr "Modus"
+
+msgid "Total commits"
+msgstr "Samlede commits"
+
+msgid "Changes per commit"
+msgstr "Ændringer pr. commit"
+
+msgid "Number of commits"
+msgstr "Antal commits"
+
+msgid "Change Status"
+msgstr "Ændringsstatus"
+
+msgid "Accepted"
+msgstr "Accepteret"
+
+msgid "Rejected"
+msgstr "Afvist"
+
+msgid "Pending"
+msgstr "Afventende"
+
+msgid "Custom Heatmap"
+msgstr "Brugerdefineret heatmap"
+
+msgid "Custom Heatmap Configuration"
+msgstr "Brugerdefineret heatmap-konfiguration"
+
+msgid "X Axis (columns)"
+msgstr "X-akse (kolonner)"
+
+msgid "Y Axis (rows)"
+msgstr "Y-akse (rækker)"
+
+msgid "Value (measure)"
+msgstr "Værdi (måling)"
+
+msgid "Generate"
+msgstr "Generer"
+
+msgid "Filter by records (optional)"
+msgstr "Filtrer efter poster (valgfrit)"
+
+msgid "Filter by users (optional)"
+msgstr "Filtrer efter brugere (valgfrit)"
+
+msgid "Type to search for individuals or families"
+msgstr "Skriv for at søge efter personer eller familier"
+
+msgid "Heatmap"
+msgstr "Heatmap"
+
+msgid "Configure the axes and click Generate to create the heatmap"
+msgstr "Konfigurer akserne og klik Generer for at oprette heatmappen"
+
+msgid "Search records..."
+msgstr "Søg i poster..."
+
+msgid "X and Y axes must be different"
+msgstr "X- og Y-akser skal være forskellige"
+
+msgid "Loading..."
+msgstr "Indlæser..."
+
+msgid "Error loading heatmap"
+msgstr "Fejl ved indlæsning af heatmap"
+
+msgid "No data available for this combination"
+msgstr "Ingen data tilgængelig for denne kombination"
+
+msgid "Unique records"
+msgstr "Unikke poster"
+
+msgid "Unique users"
+msgstr "Unikke brugere"
+
+msgid "Unique days"
+msgstr "Unikke dage"
+
+msgid "Hour"
+msgstr "Time"
+
+msgid "Day of month"
+msgstr "Dag i måneden"
+
+msgid "Record type"
+msgstr "Posttype"
+
+msgid "Distribution of changes across different GEDCOM record types (individuals, families, sources, etc.)"
+msgstr "Fordeling af ændringer på tværs af forskellige GEDCOM-posttyper (personer, familier, kilder, etc.)"
+
+msgid "Records with the most lines changed in their GEDCOM data"
+msgstr "Poster med flest ændrede linjer i deres GEDCOM-data"
+
+msgid "Individuals with the highest number of edits"
+msgstr "Personer med det højeste antal redigeringer"
+
+msgid "Types of facts (birth, death, marriage, etc.) that were edited most frequently"
+msgstr "Typer af fakta (fødsel, død, ægteskab, etc.) der blev redigeret hyppigst"
+
+msgid "Types of facts that were newly added most frequently"
+msgstr "Typer af fakta der hyppigst blev tilføjet"
+
+msgid "Types of facts that were removed most frequently"
+msgstr "Typer af fakta der hyppigst blev fjernet"
+
+msgid "Individuals with the most fact changes (additions, edits, deletions)"
+msgstr "Personer med flest faktaændringer (tilføjelser, redigeringer, sletninger)"
+
+msgid "Number of changes made by each user"
+msgstr "Antal ændringer foretaget af hver bruger"
+
+msgid "Days with the highest number of changes - intensive editing sessions"
+msgstr "Dage med det højeste antal ændringer - intensive redigeringssessioner"
+
+msgid "Distribution of how many changes are made per commit - shows editing style (single changes vs batches)"
+msgstr "Fordeling af antal ændringer pr. commit - viser redigeringsstil (enkelte ændringer vs batches)"
+
+msgid "Ratio of accepted, rejected, and pending changes"
+msgstr "Forhold mellem accepterede, afviste og afventende ændringer"
+
+msgid "Distribution of changes across hours of the day (0-23) - shows when editors are most active"
+msgstr "Fordeling af ændringer på tværs af døgnets timer (0-23) - viser hvornår redaktører er mest aktive"
+
+msgid "Distribution of changes across days of the week - shows preferred editing days"
+msgstr "Fordeling af ændringer på tværs af ugedage - viser foretrukne redigeringsdage"
+
+msgid "Distribution of changes across days 1-31 - shows if certain days are more active"
+msgstr "Fordeling af ændringer på tværs af dage 1-31 - viser om bestemte dage er mere aktive"
+
+msgid "Distribution of changes across months - shows seasonal editing patterns"
+msgstr "Fordeling af ændringer på tværs af måneder - viser sæsonbestemte redigeringsmønstre"
+
+msgid "Number of changes per year - shows long-term editing activity"
+msgstr "Antal ændringer pr. år - viser langsigtet redigeringsaktivitet"
+
+msgid "Timeline showing editing activity week by week"
+msgstr "Tidslinje der viser redigeringsaktivitet uge for uge"
+
+msgid "Create custom visualizations by selecting dimensions for X and Y axes and a measure to display"
+msgstr "Opret brugerdefinerede visualiseringer ved at vælge dimensioner for X- og Y-akser og en måling at vise"
+
+msgid "These statistics are based on the webtrees change log, which records all modifications to GEDCOM records. The timestamps reflect when changes were accepted/committed, not when data was originally entered. Each commit may contain multiple individual changes."
+msgstr "Disse statistikker er baseret på webtrees-ændringsloggen, som registrerer alle ændringer til GEDCOM-poster. Tidsstemplerne afspejler hvornår ændringer blev accepteret/godkendt, ikke hvornår data oprindeligt blev indtastet. Hver commit kan indeholde flere individuelle ændringer."
+
+msgid "Data Content"
+msgstr "Dataindhold"
+
+msgid "Work Patterns"
+msgstr "Arbejdsmønstre"
+
+msgid "Changes by Year"
+msgstr "Ændringer efter år"
+
+msgid "Changes by Day of Month"
+msgstr "Ændringer efter dag i måneden"
+
+msgid "Year"
+msgstr "År"
+
+msgid "Month"
+msgstr "Måned"
+
+msgid "User"
+msgstr "Bruger"
+
+msgid "Access control"
+msgstr "Adgangskontrol"
+
+msgid "Require authentication"
+msgstr "Kræv godkendelse"
+
+msgid "Only authenticated (logged in) users can view statistics"
+msgstr "Kun godkendte (loggede ind) brugere kan se statistikker"
+
+msgid "Show own statistics only"
+msgstr "Vis kun egne statistikker"
+
+msgid "Users can only see statistics for their own changes"
+msgstr "Brugere kan kun se statistikker for deres egne ændringer"
+
+msgid "You must be logged in to view statistics"
+msgstr "Du skal være logget ind for at se statistikker"
+
+msgid "Filter by individual (optional)"
+msgstr "Filtrer efter person (valgfrit)"
+
+msgid "Fact Completeness Progress"
+msgstr "Fremskridt i faktafuldstændighed"
+
+msgid "Are we adding richer information over time?"
+msgstr "Tilføjer vi rigere information over tid?"
+
+msgid "Creation vs Modification Trend"
+msgstr "Oprettelse vs ændringstendens"
+
+msgid "Are we creating records or improving existing ones?"
+msgstr "Opretter vi poster eller forbedrer vi eksisterende?"
+
+msgid "Edit Velocity Trend"
+msgstr "Redigeringshastighed tendens"
+
+msgid "Is editing activity accelerating or declining?"
+msgstr "Accelererer eller falder redigeringsaktiviteten?"
+
+msgid "Session Duration Distribution"
+msgstr "Fordeling af sessionslængde"
+
+msgid "How long do users work in a single session?"
+msgstr "Hvor længe arbejder brugere i en enkelt session?"
+
+msgid "Collaboration Network"
+msgstr "Samarbejdsnetværk"
+
+msgid "Which users work on the same records?"
+msgstr "Hvilke brugere arbejder på de samme poster?"
+
+msgid "Network visualization requires additional library. Showing data table instead."
+msgstr "Netværksvisualisering kræver ekstra bibliotek. Viser datatabellen i stedet."
+
+msgid "Before Edit"
+msgstr "Før redigering"
+
+msgid "After Edit"
+msgstr "Efter redigering"
+
+msgid "Net Gain"
+msgstr "Netto tilvækst"
+
+msgid "Avg Facts per Record"
+msgstr "Gns. fakta pr. post"
+
+msgid "New Records"
+msgstr "Nye poster"
+
+msgid "Modifications"
+msgstr "Ændringer"
+
+msgid "Changes"
+msgstr "Ændringer"
+
+msgid "Changes per Week"
+msgstr "Ændringer pr. uge"
+
+msgid "Moving Average (4-week)"
+msgstr "Glidende gennemsnit (4 uger)"
+
+msgid "Number of Sessions"
+msgstr "Antal sessioner"
+
+msgid "Sessions"
+msgstr "Sessioner"
+
+msgid "User 1"
+msgstr "Bruger 1"
+
+msgid "User 2"
+msgstr "Bruger 2"
+
+msgid "Shared Records"
+msgstr "Delte poster"
+
+msgid "No collaboration detected (users working on same records)."
+msgstr "Ingen samarbejde registreret (brugere der arbejder på samme poster)."
+
+msgid "Activity Log"
+msgstr "Aktivitetslog"
+
+msgid "Authentication Summary"
+msgstr "Godkendelsesoversigt"
+
+msgid "Login activity and failed attempts over last 90 days"
+msgstr "Login-aktivitet og mislykkede forsøg i de sidste 90 dage"
+
+msgid "Search Activity Timeline"
+msgstr "Søgeaktivitet tidslinje"
+
+msgid "Search volume over last 90 days"
+msgstr "Søgevolumen i de sidste 90 dage"
+
+msgid "Most Searched Terms"
+msgstr "Mest søgte termer"
+
+msgid "Top 20 search queries (last 90 days)"
+msgstr "Top 20 søgeforespørgsler (sidste 90 dage)"
+
+msgid "Failed Login Attempts"
+msgstr "Mislykkede loginforsøg"
+
+msgid "Security monitoring - top failed logins (last 30 days, min 3 attempts)"
+msgstr "Sikkerhedsovervågning - fleste mislykkede logins (sidste 30 dage, min 3 forsøg)"
+
+msgid "Successful Logins"
+msgstr "Vellykkede logins"
+
+msgid "Failed Attempts"
+msgstr "Mislykkede forsøg"
+
+msgid "Logins"
+msgstr "Logins"
+
+msgid "Failed"
+msgstr "Mislykket"
+
+msgid "Searches"
+msgstr "Søgninger"
+
+msgid "Search term"
+msgstr "Søgeterm"
+
+msgid "Search Count"
+msgstr "Antal søgninger"
+
+msgid "Times Searched"
+msgstr "Gange søgt"
+
+msgid "Count"
+msgstr "Antal"
+
+msgid "No suspicious login activity detected"
+msgstr "Ingen mistænkelig login-aktivitet registreret"
+
+msgid "Username"
+msgstr "Brugernavn"
+
+msgid "IP Address"
+msgstr "IP-adresse"
+
+msgid "Attempts"
+msgstr "Forsøg"
+
+msgid "Last Attempt"
+msgstr "Sidste forsøg"
+
+msgid "Timeline display"
+msgstr "Tidslinjevisning"
+
+msgid "Controls how time-based charts display periods without data. When showing zeros, charts extend to the current date."
+msgstr "Styrer hvordan tidsbaserede diagrammer viser perioder uden data. Ved visning af nuller udvides diagrammer til den aktuelle dato."
+
+msgid "Skip empty periods"
+msgstr "Spring tomme perioder over"
+
+msgid "Default - compact view"
+msgstr "Standard - kompakt visning"
+
+msgid "Show zero periods"
+msgstr "Vis nulperioder"
+
+msgid "Full timeline to current date"
+msgstr "Fuld tidslinje til nuværende dato"
+
+msgid "Choose how time-based charts handle periods with no activity."
+msgstr "Vælg hvordan tidsbaserede diagrammer håndterer perioder uden aktivitet."
+
+msgid "Fact type"
+msgstr "Faktatype"
+
+msgid "Internal Messaging Activity"
+msgstr "Intern beskedaktivitet"
+
+msgid "Most Active Communicators"
+msgstr "Mest aktive kommunikatører"
+
+msgid "Timeline of internal messages sent between users"
+msgstr "Tidslinje over interne beskeder sendt mellem brugere"
+
+msgid "Users with the most sent and received internal messages"
+msgstr "Brugere med flest sendte og modtagne interne beskeder"
+
+msgid "Number of searches performed over time"
+msgstr "Antal søgninger udført over tid"
+
+msgid "Top 20 most frequently searched terms"
+msgstr "Top 20 mest søgte termer"
+
+msgid "Security monitoring - users/IPs with repeated failed login attempts"
+msgstr "Sikkerhedsovervågning - brugere/IP'er med gentagne mislykkede loginforsøg"
+
+msgid "Number of searches"
+msgstr "Antal søgninger"
+
+msgid "Sent"
+msgstr "Sendt"
+
+msgid "Received"
+msgstr "Modtaget"
+
+msgid "January"
+msgstr "Januar"
+
+msgid "February"
+msgstr "Februar"
+
+msgid "March"
+msgstr "Marts"
+
+msgid "April"
+msgstr "April"
+
+msgid "May"
+msgstr "Maj"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "August"
+msgstr "August"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "December"
+
+msgid "Session Duration"
+msgstr "Sessionslængde"
+
+msgid "Number of sessions"
+msgstr "Antal sessioner"
+
+msgid "Average changes per individual"
+msgstr "Gennemsnitlige ændringer pr. person"
+
+msgid "Data Content Statistics"
+msgstr "Dataindhold statistikker"
+
+msgid "Editor Work Patterns"
+msgstr "Redaktør arbejdsmønstre"
+
+msgid "Creation"
+msgstr "Oprettelse"
+
+msgid "Modification"
+msgstr "Ændring"
+
+msgid "Successful logins"
+msgstr "Vellykkede logins"
+
+msgid "Failed attempts"
+msgstr "Mislykkede forsøg"
+
+msgid "Absolute"
+msgstr "Absolut"
+
+msgid "Relative (%%)"
+msgstr "Relativ (%%)"
+
+msgid "Trend (4-period avg)"
+msgstr "Tendens (4-periode gns.)"
+
+msgid "No years selected"
+msgstr "Ingen år valgt"
+
+msgid "All years"
+msgstr "Alle år"
+
+msgid "Successful logins and failed login attempts"
+msgstr "Vellykkede logins og mislykkede loginforsøg"
+
+msgid "IP address display"
+msgstr "IP-adresse visning"
+
+msgid "Hidden"
+msgstr "Skjult"
+
+msgid "Default - no IP addresses shown"
+msgstr "Standard - ingen IP-adresser vist"
+
+msgid "Partially masked"
+msgstr "Delvist maskeret"
+
+msgid "e.g., 192.168.xxx.xxx"
+msgstr "f.eks. 192.168.xxx.xxx"
+
+msgid "Full IP address"
+msgstr "Fuld IP-adresse"
+
+msgid "Show complete IP addresses"
+msgstr "Vis komplette IP-adresser"
+
+msgid "Controls how IP addresses are displayed in the Failed Login Attempts chart."
+msgstr "Styrer hvordan IP-adresser vises i diagrammet over mislykkede loginforsøg."
+
+msgid "Filter by record (optional)"
+msgstr "Filtrer efter post (valgfrit)"
+
+msgid "Search individuals, families, sources..."
+msgstr "Søg personer, familier, kilder..."
+
+msgid "Search and select multiple records of any type"
+msgstr "Søg og vælg flere poster af enhver type"

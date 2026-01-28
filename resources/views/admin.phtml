@@ -1,0 +1,176 @@
+<?php
+
+declare(strict_types=1);
+
+use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\View;
+
+/**
+ * @var string $title
+ * @var string $module
+ * @var int $default_days
+ * @var string $color_scheme
+ * @var string $timeline_display
+ * @var bool $require_authentication
+ * @var bool $show_own_stats_only
+ * @var string $mask_ip_address
+ */
+
+?>
+
+<h1><?= $title ?></h1>
+
+<p>
+    <?= I18N::translate('Configure default settings for the Insight Lens.') ?>
+</p>
+
+<form method="post" action="<?= e(route('module', ['module' => $module, 'action' => 'Admin'])) ?>">
+    <?= csrf_field() ?>
+
+    <div class="row mb-3">
+        <label for="default_days" class="col-sm-3 col-form-label">
+            <?= I18N::translate('Default time period') ?>
+        </label>
+        <div class="col-sm-9">
+            <div class="input-group">
+                <input
+                    type="number"
+                    class="form-control"
+                    id="default_days"
+                    name="default_days"
+                    value="<?= e($default_days) ?>"
+                    min="0"
+                    max="3650"
+                    required>
+                <span class="input-group-text"><?= I18N::translate('days') ?></span>
+            </div>
+            <small class="form-text text-muted">
+                <?= I18N::translate('Default number of days to show in the Data Content tab (0 = all time). Range: 0-3650 days.') ?>
+            </small>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="color_scheme" class="col-sm-3 col-form-label">
+            <?= I18N::translate('Color scheme') ?>
+        </label>
+        <div class="col-sm-9">
+            <select class="form-select" id="color_scheme" name="color_scheme">
+                <option value="classic" <?= $color_scheme === 'classic' ? 'selected' : '' ?>>
+                    <?= I18N::translate('Classic colors') ?> (<?= I18N::translate('Soft, pastel colors like Google Charts') ?>)
+                </option>
+                <option value="modern" <?= $color_scheme === 'modern' ? 'selected' : '' ?>>
+                    <?= I18N::translate('Modern colors') ?> (<?= I18N::translate('Vibrant, saturated colors') ?>)
+                </option>
+            </select>
+            <small class="form-text text-muted">
+                <?= I18N::translate('Choose the color scheme for all chart visualizations.') ?>
+            </small>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="timeline_display" class="col-sm-3 col-form-label">
+            <?= I18N::translate('Timeline display') ?>
+            <span class="wt-icon-help" title="<?= I18N::translate('Controls how time-based charts display periods without data. When showing zeros, charts extend to the current date.') ?>"><i class="fas fa-question-circle fa-fw" aria-hidden="true"></i></span>
+        </label>
+        <div class="col-sm-9">
+            <select class="form-select" id="timeline_display" name="timeline_display">
+                <option value="skip_empty" <?= $timeline_display === 'skip_empty' ? 'selected' : '' ?>>
+                    <?= I18N::translate('Skip empty periods') ?> (<?= I18N::translate('Default - compact view') ?>)
+                </option>
+                <option value="show_zeros" <?= $timeline_display === 'show_zeros' ? 'selected' : '' ?>>
+                    <?= I18N::translate('Show zero periods') ?> (<?= I18N::translate('Full timeline to current date') ?>)
+                </option>
+            </select>
+            <small class="form-text text-muted">
+                <?= I18N::translate('Choose how time-based charts handle periods with no activity.') ?>
+            </small>
+        </div>
+    </div>
+
+    <fieldset class="mb-3">
+        <legend class="col-form-label">
+            <?= I18N::translate('Access control') ?>
+        </legend>
+
+        <div class="row mb-3">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9">
+                <div class="form-check">
+                    <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="require_authentication"
+                        name="require_authentication"
+                        value="1"
+                        <?= $require_authentication ? 'checked' : '' ?>>
+                    <label class="form-check-label" for="require_authentication">
+                        <?= I18N::translate('Require authentication') ?>
+                    </label>
+                    <div class="form-text">
+                        <?= I18N::translate('Only authenticated (logged in) users can view statistics') ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9">
+                <div class="form-check">
+                    <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="show_own_stats_only"
+                        name="show_own_stats_only"
+                        value="1"
+                        <?= $show_own_stats_only ? 'checked' : '' ?>>
+                    <label class="form-check-label" for="show_own_stats_only">
+                        <?= I18N::translate('Show own statistics only') ?>
+                    </label>
+                    <div class="form-text">
+                        <?= I18N::translate('Users can only see statistics for their own changes') ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="mask_ip_address" class="col-sm-3 col-form-label">
+                <?= I18N::translate('IP address display') ?>
+            </label>
+            <div class="col-sm-9">
+                <select class="form-select" id="mask_ip_address" name="mask_ip_address">
+                    <option value="hidden" <?= $mask_ip_address === 'hidden' ? 'selected' : '' ?>>
+                        <?= I18N::translate('Hidden') ?> (<?= I18N::translate('Default - no IP addresses shown') ?>)
+                    </option>
+                    <option value="partial" <?= $mask_ip_address === 'partial' ? 'selected' : '' ?>>
+                        <?= I18N::translate('Partially masked') ?> (<?= I18N::translate('e.g., 192.168.xxx.xxx') ?>)
+                    </option>
+                    <option value="full" <?= $mask_ip_address === 'full' ? 'selected' : '' ?>>
+                        <?= I18N::translate('Full IP address') ?> (<?= I18N::translate('Show complete IP addresses') ?>)
+                    </option>
+                </select>
+                <small class="form-text text-muted">
+                    <?= I18N::translate('Controls how IP addresses are displayed in the Failed Login Attempts chart.') ?>
+                </small>
+            </div>
+        </div>
+    </fieldset>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9">
+            <button type="submit" class="btn btn-primary">
+                <?= I18N::translate('save') ?>
+            </button>
+            <a href="<?= e(route(ControlPanel::class)) ?>" class="btn btn-secondary">
+                <?= I18N::translate('cancel') ?>
+            </a>
+        </div>
+    </div>
+</form>

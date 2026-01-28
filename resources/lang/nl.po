@@ -1,0 +1,758 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: webtrees-lens 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-24 12:00+0000\n"
+"PO-Revision-Date: 2025-01-24 12:00+0000\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Insight Lens"
+msgstr "Insight Lens"
+
+msgid "Visualize genealogy change statistics with interactive charts"
+msgstr "Visualiseer genealogische wijzigingsstatistieken met interactieve grafieken"
+
+msgid "Change Statistics"
+msgstr "Wijzigingsstatistieken"
+
+msgid "Changes by Record Type"
+msgstr "Wijzigingen per recordtype"
+
+msgid "Changes by User"
+msgstr "Wijzigingen per gebruiker"
+
+msgid "Changes by Tree"
+msgstr "Wijzigingen per stamboom"
+
+msgid "Changes by Hour"
+msgstr "Wijzigingen per uur"
+
+msgid "Changes by Day of Week"
+msgstr "Wijzigingen per weekdag"
+
+msgid "Changes by Month"
+msgstr "Wijzigingen per maand"
+
+msgid "Most Edited Individuals"
+msgstr "Meest bewerkte personen"
+
+msgid "Most Edited Facts"
+msgstr "Meest bewerkte feiten"
+
+msgid "Most Added Facts"
+msgstr "Meest toegevoegde feiten"
+
+msgid "Most Deleted Facts"
+msgstr "Meest verwijderde feiten"
+
+msgid "Most Changed Facts Per Individual"
+msgstr "Meest gewijzigde feiten per persoon"
+
+msgid "Editing Activity Over Time"
+msgstr "Bewerkingsactiviteit door de tijd"
+
+msgid "Biggest Work Sessions"
+msgstr "Grootste werksessies"
+
+msgid "Largest Changes"
+msgstr "Grootste wijzigingen"
+
+msgid "Weekly editing activity - shows work intensity over time"
+msgstr "Wekelijkse bewerkingsactiviteit - toont werkintensiteit door de tijd"
+
+msgid "Days with most editing activity"
+msgstr "Dagen met de meeste bewerkingsactiviteit"
+
+msgid "Most comprehensive edits by GEDCOM size"
+msgstr "Meest uitgebreide bewerkingen op GEDCOM-grootte"
+
+msgid "Lines changed"
+msgstr "Gewijzigde regels"
+
+msgid "Individual"
+msgstr "Persoon"
+
+msgid "Family"
+msgstr "Familie"
+
+msgid "Source"
+msgstr "Bron"
+
+msgid "Repository"
+msgstr "Archief"
+
+msgid "Media"
+msgstr "Media"
+
+msgid "Note"
+msgstr "Notitie"
+
+msgid "Location"
+msgstr "Locatie"
+
+msgid "Submitter"
+msgstr "Indiener"
+
+msgid "Submission"
+msgstr "Inzending"
+
+msgid "Header"
+msgstr "Koptekst"
+
+msgid "Other"
+msgstr "Overig"
+
+msgid "Number of changes"
+msgstr "Aantal wijzigingen"
+
+msgid "Number of additions"
+msgstr "Aantal toevoegingen"
+
+msgid "Number of deletions"
+msgstr "Aantal verwijderingen"
+
+msgid "Hour of day"
+msgstr "Uur van de dag"
+
+msgid "Day of week"
+msgstr "Dag van de week"
+
+msgid "Analyzing changes from the last %s days"
+msgstr "Analyse van wijzigingen van de laatste %s dagen"
+
+msgid "No data available"
+msgstr "Geen gegevens beschikbaar"
+
+msgid "Time period"
+msgstr "Tijdsperiode"
+
+msgid "Time period selection"
+msgstr "Tijdsperiode selectie"
+
+msgid "Last 7 days"
+msgstr "Laatste 7 dagen"
+
+msgid "Last 30 days"
+msgstr "Laatste 30 dagen"
+
+msgid "Last 90 days"
+msgstr "Laatste 90 dagen"
+
+msgid "Last 6 months"
+msgstr "Laatste 6 maanden"
+
+msgid "Last year"
+msgstr "Laatste jaar"
+
+msgid "All time"
+msgstr "Gehele periode"
+
+msgid "Custom days"
+msgstr "Aangepaste dagen"
+
+msgid "Apply"
+msgstr "Toepassen"
+
+msgid "Showing statistics for all time"
+msgstr "Statistieken voor de gehele periode worden getoond"
+
+msgid "Filter by user"
+msgstr "Filteren op gebruiker"
+
+msgid "All users"
+msgstr "Alle gebruikers"
+
+msgid "Users"
+msgstr "Gebruikers"
+
+msgid "selected"
+msgstr "geselecteerd"
+
+msgid "Hold Ctrl (Windows) or Cmd (Mac) to select multiple users"
+msgstr "Houd Ctrl (Windows) of Cmd (Mac) ingedrukt om meerdere gebruikers te selecteren"
+
+msgid "Apply filter"
+msgstr "Filter toepassen"
+
+msgid "Filtered by %s user(s)"
+msgstr "Gefilterd op %s gebruiker(s)"
+
+msgid "and %s more"
+msgstr "en %s meer"
+
+msgid "Showing data for all users"
+msgstr "Gegevens voor alle gebruikers worden getoond"
+
+msgid "No changes found for selected user(s) in this time period"
+msgstr "Geen wijzigingen gevonden voor geselecteerde gebruiker(s) in deze periode"
+
+msgid "No changes found for selected user(s)"
+msgstr "Geen wijzigingen gevonden voor geselecteerde gebruiker(s)"
+
+msgid "No changes found in this time period"
+msgstr "Geen wijzigingen gevonden in deze periode"
+
+msgid "Aggregate data across years"
+msgstr "Gegevens over jaren samenvoegen"
+
+msgid "Shows combined data with range shading"
+msgstr "Toont gecombineerde gegevens met bereikarcering"
+
+msgid "Shows data split by individual years"
+msgstr "Toont gegevens gesplitst per individueel jaar"
+
+msgid "Total changes"
+msgstr "Totaal wijzigingen"
+
+msgid "Range"
+msgstr "Bereik"
+
+msgid "Configure default settings for Insight Lens."
+msgstr "Standaardinstellingen voor Insight Lens configureren."
+
+msgid "Default time period"
+msgstr "Standaard tijdsperiode"
+
+msgid "Default number of days to show in the Data Content tab (0 = all time). Range: 0-3650 days."
+msgstr "Standaard aantal dagen om te tonen in het tabblad Gegevensinhoud (0 = gehele periode). Bereik: 0-3650 dagen."
+
+msgid "The preferences for the module \"%s\" have been updated."
+msgstr "De voorkeuren voor de module \"%s\" zijn bijgewerkt."
+
+msgid "Color scheme"
+msgstr "Kleurenschema"
+
+msgid "Classic colors"
+msgstr "Klassieke kleuren"
+
+msgid "Modern colors"
+msgstr "Moderne kleuren"
+
+msgid "Soft, pastel colors like Google Charts"
+msgstr "Zachte pastelkleuren zoals Google Charts"
+
+msgid "Vibrant, saturated colors"
+msgstr "Levendige, verzadigde kleuren"
+
+msgid "Choose the color scheme for all chart visualizations."
+msgstr "Kies het kleurenschema voor alle grafiekvisualisaties."
+
+msgid "Commit Size Distribution"
+msgstr "Verdeling van commitgrootte"
+
+msgid "Mean"
+msgstr "Gemiddelde"
+
+msgid "Median"
+msgstr "Mediaan"
+
+msgid "Messages"
+msgstr "Berichten"
+
+msgid "Mode"
+msgstr "Modus"
+
+msgid "Total commits"
+msgstr "Totaal commits"
+
+msgid "Changes per commit"
+msgstr "Wijzigingen per commit"
+
+msgid "Number of commits"
+msgstr "Aantal commits"
+
+msgid "Change Status"
+msgstr "Wijzigingsstatus"
+
+msgid "Accepted"
+msgstr "Geaccepteerd"
+
+msgid "Rejected"
+msgstr "Afgewezen"
+
+msgid "Pending"
+msgstr "In behandeling"
+
+msgid "Custom Heatmap"
+msgstr "Aangepaste heatmap"
+
+msgid "Custom Heatmap Configuration"
+msgstr "Aangepaste heatmap configuratie"
+
+msgid "X Axis (columns)"
+msgstr "X-as (kolommen)"
+
+msgid "Y Axis (rows)"
+msgstr "Y-as (rijen)"
+
+msgid "Value (measure)"
+msgstr "Waarde (meting)"
+
+msgid "Generate"
+msgstr "Genereren"
+
+msgid "Filter by records (optional)"
+msgstr "Filteren op records (optioneel)"
+
+msgid "Filter by users (optional)"
+msgstr "Filteren op gebruikers (optioneel)"
+
+msgid "Type to search for individuals or families"
+msgstr "Typ om te zoeken naar personen of families"
+
+msgid "Heatmap"
+msgstr "Heatmap"
+
+msgid "Configure the axes and click Generate to create the heatmap"
+msgstr "Configureer de assen en klik op Genereren om de heatmap te maken"
+
+msgid "Search records..."
+msgstr "Records zoeken..."
+
+msgid "X and Y axes must be different"
+msgstr "X- en Y-as moeten verschillend zijn"
+
+msgid "Loading..."
+msgstr "Laden..."
+
+msgid "Error loading heatmap"
+msgstr "Fout bij laden van heatmap"
+
+msgid "No data available for this combination"
+msgstr "Geen gegevens beschikbaar voor deze combinatie"
+
+msgid "Unique records"
+msgstr "Unieke records"
+
+msgid "Unique users"
+msgstr "Unieke gebruikers"
+
+msgid "Unique days"
+msgstr "Unieke dagen"
+
+msgid "Hour"
+msgstr "Uur"
+
+msgid "Day of month"
+msgstr "Dag van de maand"
+
+msgid "Record type"
+msgstr "Recordtype"
+
+msgid "Distribution of changes across different GEDCOM record types (individuals, families, sources, etc.)"
+msgstr "Verdeling van wijzigingen over verschillende GEDCOM-recordtypen (personen, families, bronnen, etc.)"
+
+msgid "Records with the most lines changed in their GEDCOM data"
+msgstr "Records met de meeste gewijzigde regels in hun GEDCOM-gegevens"
+
+msgid "Individuals with the highest number of edits"
+msgstr "Personen met het hoogste aantal bewerkingen"
+
+msgid "Types of facts (birth, death, marriage, etc.) that were edited most frequently"
+msgstr "Typen feiten (geboorte, overlijden, huwelijk, etc.) die het vaakst werden bewerkt"
+
+msgid "Types of facts that were newly added most frequently"
+msgstr "Typen feiten die het vaakst werden toegevoegd"
+
+msgid "Types of facts that were removed most frequently"
+msgstr "Typen feiten die het vaakst werden verwijderd"
+
+msgid "Individuals with the most fact changes (additions, edits, deletions)"
+msgstr "Personen met de meeste feitwijzigingen (toevoegingen, bewerkingen, verwijderingen)"
+
+msgid "Number of changes made by each user"
+msgstr "Aantal wijzigingen gemaakt door elke gebruiker"
+
+msgid "Days with the highest number of changes - intensive editing sessions"
+msgstr "Dagen met het hoogste aantal wijzigingen - intensieve bewerkingssessies"
+
+msgid "Distribution of how many changes are made per commit - shows editing style (single changes vs batches)"
+msgstr "Verdeling van het aantal wijzigingen per commit - toont bewerkingsstijl (enkele wijzigingen vs batches)"
+
+msgid "Ratio of accepted, rejected, and pending changes"
+msgstr "Verhouding van geaccepteerde, afgewezen en in behandeling zijnde wijzigingen"
+
+msgid "Distribution of changes across hours of the day (0-23) - shows when editors are most active"
+msgstr "Verdeling van wijzigingen over de uren van de dag (0-23) - toont wanneer bewerkers het meest actief zijn"
+
+msgid "Distribution of changes across days of the week - shows preferred editing days"
+msgstr "Verdeling van wijzigingen over de dagen van de week - toont voorkeursbewerking dagen"
+
+msgid "Distribution of changes across days 1-31 - shows if certain days are more active"
+msgstr "Verdeling van wijzigingen over dagen 1-31 - toont of bepaalde dagen actiever zijn"
+
+msgid "Distribution of changes across months - shows seasonal editing patterns"
+msgstr "Verdeling van wijzigingen over maanden - toont seizoensgebonden bewerkingspatronen"
+
+msgid "Number of changes per year - shows long-term editing activity"
+msgstr "Aantal wijzigingen per jaar - toont langdurige bewerkingsactiviteit"
+
+msgid "Timeline showing editing activity week by week"
+msgstr "Tijdlijn die bewerkingsactiviteit week voor week toont"
+
+msgid "Create custom visualizations by selecting dimensions for X and Y axes and a measure to display"
+msgstr "Maak aangepaste visualisaties door dimensies voor X- en Y-as te selecteren en een meting om weer te geven"
+
+msgid "These statistics are based on the webtrees change log, which records all modifications to GEDCOM records. The timestamps reflect when changes were accepted/committed, not when data was originally entered. Each commit may contain multiple individual changes."
+msgstr "Deze statistieken zijn gebaseerd op het webtrees-wijzigingslogboek, dat alle wijzigingen aan GEDCOM-records registreert. De tijdstempels geven aan wanneer wijzigingen werden geaccepteerd/vastgelegd, niet wanneer gegevens oorspronkelijk werden ingevoerd. Elke commit kan meerdere individuele wijzigingen bevatten."
+
+msgid "Data Content"
+msgstr "Gegevensinhoud"
+
+msgid "Work Patterns"
+msgstr "Werkpatronen"
+
+msgid "Changes by Year"
+msgstr "Wijzigingen per jaar"
+
+msgid "Changes by Day of Month"
+msgstr "Wijzigingen per dag van de maand"
+
+msgid "Year"
+msgstr "Jaar"
+
+msgid "Month"
+msgstr "Maand"
+
+msgid "User"
+msgstr "Gebruiker"
+
+msgid "Access control"
+msgstr "Toegangscontrole"
+
+msgid "Require authentication"
+msgstr "Authenticatie vereist"
+
+msgid "Only authenticated (logged in) users can view statistics"
+msgstr "Alleen geauthenticeerde (ingelogde) gebruikers kunnen statistieken bekijken"
+
+msgid "Show own statistics only"
+msgstr "Alleen eigen statistieken tonen"
+
+msgid "Users can only see statistics for their own changes"
+msgstr "Gebruikers kunnen alleen statistieken van hun eigen wijzigingen zien"
+
+msgid "You must be logged in to view statistics"
+msgstr "U moet ingelogd zijn om statistieken te bekijken"
+
+msgid "Filter by individual (optional)"
+msgstr "Filteren op persoon (optioneel)"
+
+msgid "Fact Completeness Progress"
+msgstr "Voortgang van feitenvolledigheid"
+
+msgid "Are we adding richer information over time?"
+msgstr "Voegen we steeds rijkere informatie toe door de tijd?"
+
+msgid "Creation vs Modification Trend"
+msgstr "Creatie vs wijziging trend"
+
+msgid "Are we creating records or improving existing ones?"
+msgstr "Maken we nieuwe records of verbeteren we bestaande?"
+
+msgid "Edit Velocity Trend"
+msgstr "Bewerkingssnelheid trend"
+
+msgid "Is editing activity accelerating or declining?"
+msgstr "Versnelt of vertraagt de bewerkingsactiviteit?"
+
+msgid "Session Duration Distribution"
+msgstr "Verdeling van sessieduur"
+
+msgid "How long do users work in a single session?"
+msgstr "Hoe lang werken gebruikers in een enkele sessie?"
+
+msgid "Collaboration Network"
+msgstr "Samenwerkingsnetwerk"
+
+msgid "Which users work on the same records?"
+msgstr "Welke gebruikers werken aan dezelfde records?"
+
+msgid "Network visualization requires additional library. Showing data table instead."
+msgstr "Netwerkvisualisatie vereist extra bibliotheek. In plaats daarvan wordt een gegevenstabel getoond."
+
+msgid "Before Edit"
+msgstr "Voor bewerking"
+
+msgid "After Edit"
+msgstr "Na bewerking"
+
+msgid "Net Gain"
+msgstr "Netto toename"
+
+msgid "Avg Facts per Record"
+msgstr "Gem. feiten per record"
+
+msgid "New Records"
+msgstr "Nieuwe records"
+
+msgid "Modifications"
+msgstr "Wijzigingen"
+
+msgid "Changes"
+msgstr "Wijzigingen"
+
+msgid "Changes per Week"
+msgstr "Wijzigingen per week"
+
+msgid "Moving Average (4-week)"
+msgstr "Voortschrijdend gemiddelde (4 weken)"
+
+msgid "Number of Sessions"
+msgstr "Aantal sessies"
+
+msgid "Sessions"
+msgstr "Sessies"
+
+msgid "User 1"
+msgstr "Gebruiker 1"
+
+msgid "User 2"
+msgstr "Gebruiker 2"
+
+msgid "Shared Records"
+msgstr "Gedeelde records"
+
+msgid "No collaboration detected (users working on same records)."
+msgstr "Geen samenwerking gedetecteerd (gebruikers die aan dezelfde records werken)."
+
+msgid "Activity Log"
+msgstr "Activiteitenlogboek"
+
+msgid "Authentication Summary"
+msgstr "Authenticatie-overzicht"
+
+msgid "Login activity and failed attempts over last 90 days"
+msgstr "Aanmeldactiviteit en mislukte pogingen van de laatste 90 dagen"
+
+msgid "Search Activity Timeline"
+msgstr "Zoekactiviteit tijdlijn"
+
+msgid "Search volume over last 90 days"
+msgstr "Zoekvolume van de laatste 90 dagen"
+
+msgid "Most Searched Terms"
+msgstr "Meest gezochte termen"
+
+msgid "Top 20 search queries (last 90 days)"
+msgstr "Top 20 zoekopdrachten (laatste 90 dagen)"
+
+msgid "Failed Login Attempts"
+msgstr "Mislukte aanmeldpogingen"
+
+msgid "Security monitoring - top failed logins (last 30 days, min 3 attempts)"
+msgstr "Beveiligingsmonitoring - meeste mislukte aanmeldingen (laatste 30 dagen, min 3 pogingen)"
+
+msgid "Successful Logins"
+msgstr "Succesvolle aanmeldingen"
+
+msgid "Failed Attempts"
+msgstr "Mislukte pogingen"
+
+msgid "Logins"
+msgstr "Aanmeldingen"
+
+msgid "Failed"
+msgstr "Mislukt"
+
+msgid "Searches"
+msgstr "Zoekopdrachten"
+
+msgid "Search term"
+msgstr "Zoekterm"
+
+msgid "Search Count"
+msgstr "Aantal zoekopdrachten"
+
+msgid "Times Searched"
+msgstr "Aantal keer gezocht"
+
+msgid "Count"
+msgstr "Aantal"
+
+msgid "No suspicious login activity detected"
+msgstr "Geen verdachte aanmeldactiviteit gedetecteerd"
+
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+msgid "IP Address"
+msgstr "IP-adres"
+
+msgid "Attempts"
+msgstr "Pogingen"
+
+msgid "Last Attempt"
+msgstr "Laatste poging"
+
+msgid "Timeline display"
+msgstr "Tijdlijnweergave"
+
+msgid "Controls how time-based charts display periods without data. When showing zeros, charts extend to the current date."
+msgstr "Bepaalt hoe tijdgebaseerde grafieken perioden zonder gegevens tonen. Bij het tonen van nullen worden grafieken uitgebreid tot de huidige datum."
+
+msgid "Skip empty periods"
+msgstr "Lege perioden overslaan"
+
+msgid "Default - compact view"
+msgstr "Standaard - compacte weergave"
+
+msgid "Show zero periods"
+msgstr "Nulperioden tonen"
+
+msgid "Full timeline to current date"
+msgstr "Volledige tijdlijn tot huidige datum"
+
+msgid "Choose how time-based charts handle periods with no activity."
+msgstr "Kies hoe tijdgebaseerde grafieken perioden zonder activiteit behandelen."
+
+msgid "Fact type"
+msgstr "Feittype"
+
+msgid "Internal Messaging Activity"
+msgstr "Interne berichtenactiviteit"
+
+msgid "Most Active Communicators"
+msgstr "Meest actieve communiceerders"
+
+msgid "Timeline of internal messages sent between users"
+msgstr "Tijdlijn van interne berichten verzonden tussen gebruikers"
+
+msgid "Users with the most sent and received internal messages"
+msgstr "Gebruikers met de meeste verzonden en ontvangen interne berichten"
+
+msgid "Number of searches performed over time"
+msgstr "Aantal zoekopdrachten uitgevoerd door de tijd"
+
+msgid "Top 20 most frequently searched terms"
+msgstr "Top 20 meest gezochte termen"
+
+msgid "Security monitoring - users/IPs with repeated failed login attempts"
+msgstr "Beveiligingsmonitoring - gebruikers/IP's met herhaalde mislukte aanmeldpogingen"
+
+msgid "Number of searches"
+msgstr "Aantal zoekopdrachten"
+
+msgid "Sent"
+msgstr "Verzonden"
+
+msgid "Received"
+msgstr "Ontvangen"
+
+msgid "January"
+msgstr "Januari"
+
+msgid "February"
+msgstr "Februari"
+
+msgid "March"
+msgstr "Maart"
+
+msgid "April"
+msgstr "April"
+
+msgid "May"
+msgstr "Mei"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "August"
+msgstr "Augustus"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "December"
+
+msgid "Session Duration"
+msgstr "Sessieduur"
+
+msgid "Number of sessions"
+msgstr "Aantal sessies"
+
+msgid "Average changes per individual"
+msgstr "Gemiddelde wijzigingen per persoon"
+
+msgid "Data Content Statistics"
+msgstr "Gegevensinhoud statistieken"
+
+msgid "Editor Work Patterns"
+msgstr "Bewerker werkpatronen"
+
+msgid "Creation"
+msgstr "Creatie"
+
+msgid "Modification"
+msgstr "Wijziging"
+
+msgid "Successful logins"
+msgstr "Succesvolle aanmeldingen"
+
+msgid "Failed attempts"
+msgstr "Mislukte pogingen"
+
+msgid "Absolute"
+msgstr "Absoluut"
+
+msgid "Relative (%%)"
+msgstr "Relatief (%%)"
+
+msgid "Trend (4-period avg)"
+msgstr "Trend (4-perioden gemiddelde)"
+
+msgid "No years selected"
+msgstr "Geen jaren geselecteerd"
+
+msgid "All years"
+msgstr "Alle jaren"
+
+msgid "Successful logins and failed login attempts"
+msgstr "Succesvolle aanmeldingen en mislukte aanmeldpogingen"
+
+msgid "IP address display"
+msgstr "IP-adres weergave"
+
+msgid "Hidden"
+msgstr "Verborgen"
+
+msgid "Default - no IP addresses shown"
+msgstr "Standaard - geen IP-adressen getoond"
+
+msgid "Partially masked"
+msgstr "Gedeeltelijk gemaskeerd"
+
+msgid "e.g., 192.168.xxx.xxx"
+msgstr "bijv. 192.168.xxx.xxx"
+
+msgid "Full IP address"
+msgstr "Volledig IP-adres"
+
+msgid "Show complete IP addresses"
+msgstr "Volledige IP-adressen tonen"
+
+msgid "Controls how IP addresses are displayed in the Failed Login Attempts chart."
+msgstr "Bepaalt hoe IP-adressen worden weergegeven in de grafiek met mislukte aanmeldpogingen."
+
+msgid "Filter by record (optional)"
+msgstr "Filteren op record (optioneel)"
+
+msgid "Search individuals, families, sources..."
+msgstr "Zoek personen, families, bronnen..."
+
+msgid "Search and select multiple records of any type"
+msgstr "Zoek en selecteer meerdere records van elk type"
