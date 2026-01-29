@@ -3,12 +3,15 @@ msgstr ""
 "Project-Id-Version: webtrees-lens 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-24 12:00+0000\n"
-"PO-Revision-Date: 2025-01-24 12:00+0000\n"
+"PO-Revision-Date: 2026-01-29 08:16+0100\n"
+"Last-Translator: TheDutchJewel <thedutchjewel@gmail.com>\n"
+"Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.8\n"
 
 msgid "Insight Lens"
 msgstr "Insight Lens"
@@ -77,7 +80,7 @@ msgid "Individual"
 msgstr "Persoon"
 
 msgid "Family"
-msgstr "Familie"
+msgstr "Gezin"
 
 msgid "Source"
 msgstr "Bron"
@@ -215,7 +218,7 @@ msgid "Configure default settings for Insight Lens."
 msgstr "Standaardinstellingen voor Insight Lens configureren."
 
 msgid "Default time period"
-msgstr "Standaard tijdsperiode"
+msgstr "Standaardperiode"
 
 msgid "Default number of days to show in the Data Content tab (0 = all time). Range: 0-3650 days."
 msgstr "Standaard aantal dagen om te tonen in het tabblad Gegevensinhoud (0 = gehele periode). Bereik: 0-3650 dagen."
@@ -281,7 +284,7 @@ msgid "Custom Heatmap"
 msgstr "Aangepaste heatmap"
 
 msgid "Custom Heatmap Configuration"
-msgstr "Aangepaste heatmap configuratie"
+msgstr "Aangepaste heatmapconfiguratie"
 
 msgid "X Axis (columns)"
 msgstr "X-as (kolommen)"
@@ -302,7 +305,7 @@ msgid "Filter by users (optional)"
 msgstr "Filteren op gebruikers (optioneel)"
 
 msgid "Type to search for individuals or families"
-msgstr "Typ om te zoeken naar personen of families"
+msgstr "Typ om te zoeken naar personen of gezinnen"
 
 msgid "Heatmap"
 msgstr "Heatmap"
@@ -344,7 +347,7 @@ msgid "Record type"
 msgstr "Recordtype"
 
 msgid "Distribution of changes across different GEDCOM record types (individuals, families, sources, etc.)"
-msgstr "Verdeling van wijzigingen over verschillende GEDCOM-recordtypen (personen, families, bronnen, etc.)"
+msgstr "Verdeling van wijzigingen over verschillende GEDCOM-recordtypes (personen, gezinnen, bronnen, etc.)"
 
 msgid "Records with the most lines changed in their GEDCOM data"
 msgstr "Records met de meeste gewijzigde regels in hun GEDCOM-gegevens"
@@ -353,13 +356,13 @@ msgid "Individuals with the highest number of edits"
 msgstr "Personen met het hoogste aantal bewerkingen"
 
 msgid "Types of facts (birth, death, marriage, etc.) that were edited most frequently"
-msgstr "Typen feiten (geboorte, overlijden, huwelijk, etc.) die het vaakst werden bewerkt"
+msgstr "Soorten feiten (geboorte, overlijden, huwelijk etc.) die het vaakst werden bewerkt"
 
 msgid "Types of facts that were newly added most frequently"
-msgstr "Typen feiten die het vaakst werden toegevoegd"
+msgstr "Soorten feiten die het vaakst werden toegevoegd"
 
 msgid "Types of facts that were removed most frequently"
-msgstr "Typen feiten die het vaakst werden verwijderd"
+msgstr "Soorten feiten die het vaakst werden verwijderd"
 
 msgid "Individuals with the most fact changes (additions, edits, deletions)"
 msgstr "Personen met de meeste feitwijzigingen (toevoegingen, bewerkingen, verwijderingen)"
@@ -380,7 +383,7 @@ msgid "Distribution of changes across hours of the day (0-23) - shows when edito
 msgstr "Verdeling van wijzigingen over de uren van de dag (0-23) - toont wanneer bewerkers het meest actief zijn"
 
 msgid "Distribution of changes across days of the week - shows preferred editing days"
-msgstr "Verdeling van wijzigingen over de dagen van de week - toont voorkeursbewerking dagen"
+msgstr "Verdeling van wijzigingen over de dagen van de week – toont voorkeursbewerkingsdagen"
 
 msgid "Distribution of changes across days 1-31 - shows if certain days are more active"
 msgstr "Verdeling van wijzigingen over dagen 1-31 - toont of bepaalde dagen actiever zijn"
@@ -443,19 +446,19 @@ msgid "Filter by individual (optional)"
 msgstr "Filteren op persoon (optioneel)"
 
 msgid "Fact Completeness Progress"
-msgstr "Voortgang van feitenvolledigheid"
+msgstr "Voortgang van feitvolledigheid"
 
 msgid "Are we adding richer information over time?"
 msgstr "Voegen we steeds rijkere informatie toe door de tijd?"
 
 msgid "Creation vs Modification Trend"
-msgstr "Creatie vs wijziging trend"
+msgstr "Aanmaak- vs wijzigingstrend"
 
 msgid "Are we creating records or improving existing ones?"
 msgstr "Maken we nieuwe records of verbeteren we bestaande?"
 
 msgid "Edit Velocity Trend"
-msgstr "Bewerkingssnelheid trend"
+msgstr "Bewerkingssnelheidtrend"
 
 msgid "Is editing activity accelerating or declining?"
 msgstr "Versnelt of vertraagt de bewerkingsactiviteit?"
@@ -530,7 +533,7 @@ msgid "Login activity and failed attempts over last 90 days"
 msgstr "Aanmeldactiviteit en mislukte pogingen van de laatste 90 dagen"
 
 msgid "Search Activity Timeline"
-msgstr "Zoekactiviteit tijdlijn"
+msgstr "Tijdlijn van zoekactiviteit"
 
 msgid "Search volume over last 90 days"
 msgstr "Zoekvolume van de laatste 90 dagen"
@@ -689,13 +692,13 @@ msgid "Average changes per individual"
 msgstr "Gemiddelde wijzigingen per persoon"
 
 msgid "Data Content Statistics"
-msgstr "Gegevensinhoud statistieken"
+msgstr "Gegevensinhoudstatistieken"
 
 msgid "Editor Work Patterns"
-msgstr "Bewerker werkpatronen"
+msgstr "Werkpatronen van bewerker"
 
 msgid "Creation"
-msgstr "Creatie"
+msgstr "Aanmaak"
 
 msgid "Modification"
 msgstr "Wijziging"
@@ -713,7 +716,7 @@ msgid "Relative (%%)"
 msgstr "Relatief (%%)"
 
 msgid "Trend (4-period avg)"
-msgstr "Trend (4-perioden gemiddelde)"
+msgstr "Trend (4‑periodengemiddelde)"
 
 msgid "No years selected"
 msgstr "Geen jaren geselecteerd"
@@ -725,7 +728,7 @@ msgid "Successful logins and failed login attempts"
 msgstr "Succesvolle aanmeldingen en mislukte aanmeldpogingen"
 
 msgid "IP address display"
-msgstr "IP-adres weergave"
+msgstr "IP-adresweergave"
 
 msgid "Hidden"
 msgstr "Verborgen"
@@ -752,7 +755,7 @@ msgid "Filter by record (optional)"
 msgstr "Filteren op record (optioneel)"
 
 msgid "Search individuals, families, sources..."
-msgstr "Zoek personen, families, bronnen..."
+msgstr "Zoek personen, gezinnen, bronnen..."
 
 msgid "Search and select multiple records of any type"
 msgstr "Zoek en selecteer meerdere records van elk type"
